@@ -1,0 +1,115 @@
+=== Lab 07 Benchmark ===
+Chunker: recursive
+Embedding: mock
+
+Loaded 10 documents from dang-ky-hoc-phan
+Loaded 2 documents from thu-vien
+Total documents: 12
+
+Chunking and ingesting documents...
+Stored 1687 chunks
+
+=== Running 5 Benchmark Queries ===
+
+Query: Theo danh mục môn học UIT, CS106 yêu cầu môn học trước nào?
+  [1] score=0.4540 doc_id=course-summaries
+      preview: - summary: Phân tích không gian là một chức năng quan trọng của GIS trong tiến trình khai thác hệ thống thông tin địa lý...
+  [2] score=0.4365 doc_id=course-summaries
+      preview: 
+## DS505 — Khóa luận tốt nghiệp
+- code: DS505
+- name: Khóa luận tốt nghiệp
+- summary: Giúp sinh viên có kỹ năng đọc tài...
+  [3] score=0.4322 doc_id=k18-ce-cu-nhan-nganh-ky-thuat-may-tinh-ap-dung-tu-khoa-18-2-02cbbd1e
+      preview: ### 49 tín chỉ bắt buộc đối với tất cả sinh viên
+STT | Mã môn học | Tên môn học | TC | LT | TH (1)
+1. | IT002 | Lập trìn...
+  Agent: [MOCK LLM] Answer based on context above....
+
+Query: Điều kiện để được đăng ký chuyên ngành Trí tuệ Nhân tạo K18 là gì?
+  [1] score=0.4023 doc_id=course-summaries
+      preview: ## EC208 — QuẢN trị dự án TMĐT
+- code: EC208
+- name: QuẢN trị dự án TMĐT
+- summary: Trình bày các khía cạnh quan trọng đ...
+  [2] score=0.3949 doc_id=course-list
+      preview: ## CE318 — Trình biên dịch
+- code: CE318
+- name_vi: Trình biên dịch
+- name_en: Compiler
+- is_open: true
+- faculty: K...
+  [3] score=0.3623 doc_id=course-list
+      preview: ## IS213 — Đồ án xây dựng một hệ thống thông tin
+- code: IS213
+- name_vi: Đồ án xây dựng một hệ thống thông tin
+- name_e...
+  Agent: [MOCK LLM] Answer based on context above....
+
+Query: Theo kế hoạch giảng dạy K18 AI, IT001 (Nhập môn Lập trình) được dạy ở học kỳ nào?
+  [1] score=0.4403 doc_id=course-list
+      preview: ## IS355 — Công nghệ Blockchain
+- code: IS355
+- name_vi: Công nghệ Blockchain
+- name_en: Blockchain Technology
+- is_open...
+  [2] score=0.4253 doc_id=course-list
+      preview: ## CNBU202 — Hệ thống tường lửa nâng cao
+- code: CNBU202
+- name_vi: Hệ thống tường lửa nâng cao
+- name_en: Advanced Fire...
+  [3] score=0.3891 doc_id=course-list
+      preview: ## CE337 — Tối ưu hóa dựa trên FPGA
+- code: CE337
+- name_vi: Tối ưu hóa dựa trên FPGA
+- name_en: FPGA-optimized Design
+-...
+  Agent: [MOCK LLM] Answer based on context above....
+
+Query: Liệt kê các môn tự chọn chuyên ngành của Kỹ thuật Phần mềm K18 (14 tín chỉ)
+  [1] score=0.3728 doc_id=k18-it-cu-nhan-nganh-cong-nghe-thong-tin-ap-dung-tu-khoa-18-741ba8fe
+      preview: Ngoài các môn học tự chọn trong danh sách bên dưới, sinh viên có thể chọn học:
+· Các môn học chuyên ngành, nếu các môn ...
+  [2] score=0.3665 doc_id=course-summaries
+      preview: ## CS5423 — Nguyên lý các hệ cơ sở dữ liệu
+- code: CS5423
+- name: Nguyên lý các hệ cơ sở dữ liệu
+- summary: Khái quát về...
+  [3] score=0.3505 doc_id=course-list
+      preview: ## IS505 — Khóa luận tốt nghiệp
+- code: IS505
+- name_vi: Khóa luận tốt nghiệp
+- name_en: Thesis
+- is_open: true
+- facult...
+  Agent: [MOCK LLM] Answer based on context above....
+
+Query: Hạn mượn sách tại thư viện UIT là bao nhiêu ngày?
+  Filter: {'audience': 'student'}
+  [1] score=0.3598 doc_id=k18-cs-cu-nhan-nganh-khoa-hoc-may-tinh-ap-dung-tu-khoa-18-2-8e0c37e7
+      preview: ● Hoặc, các môn học chuyên đề tốt nghiệp, nếu các môn học này chưa được tính trong khối kiến thức tốt nghiệp.
+● Hoặc, cá...
+  [2] score=0.3246 doc_id=k18-it-cu-nhan-nganh-cong-nghe-thong-tin-ap-dung-tu-khoa-18-741ba8fe
+      preview: , sinh viên chọn học
+5/7
+môn học trong bảng sau:
+STT | Mã môn | Tên môn | TC | LT | TH
+1. | IE101 | Cơ sở hạ tầng công n...
+  [3] score=0.3119 doc_id=library-loan-student ★
+      preview: # Chính sách mượn trả tài liệu Thư viện UIT — Sinh viên
+
+Nguồn: https://thuvien.uit.edu.vn/page/chinh-sach-muon-tra-tai-...
+  Agent: [MOCK LLM] Answer based on context above....
+
+=== SUMMARY ===
+Total score: 1/10
+Top-1 accuracy: 0/5
+Top-3 recall: 1/5
+
+  Q1: score=0 (top1=False, top3=False)
+  Q2: score=0 (top1=False, top3=False)
+  Q3: score=0 (top1=False, top3=False)
+  Q4: score=0 (top1=False, top3=False)
+  Q5: score=1 (top1=False, top3=True)
+
+Results saved to ket_qua_benchmark.txt

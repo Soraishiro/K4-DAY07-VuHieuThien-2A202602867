@@ -58,7 +58,7 @@ title: Hạn đăng ký học phần
 source_url: https://example.edu/quy-dinh/dang-ky-hoc-phan
 retrieved_at: 2026-09-18
 document_version: "2026-09-01" # dùng "not-stated" nếu nguồn không nêu
-audience: student               # student | faculty | staff | all
+audience: student # student | faculty | staff | all
 department: academic-affairs
 category: registration
 language: vi

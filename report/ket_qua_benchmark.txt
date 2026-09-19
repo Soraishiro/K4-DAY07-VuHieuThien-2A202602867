@@ -1,0 +1,76 @@
+{
+  "chunker": "recursive",
+  "embedding": "mock",
+  "total_score": 0,
+  "max_score": 10,
+  "top1_count": 0,
+  "top3_count": 0,
+  "results": [
+    {
+      "query_id": "Q1",
+      "query": "Theo danh mục môn học UIT, CS106 yêu cầu môn học trước nào?",
+      "gold_doc_id": "course-list",
+      "gold_answer": "IT003",
+      "top_results": [
+        "\"course-summaries\"",
+        "\"course-summaries\"",
+        "\"k18-ce-cu-nhan-nganh-ky-thuat-may-tinh-ap-dung-tu-khoa-18-2-02cbbd1e\""
+      ],
+      "found_in_top1": false,
+      "found_in_top3": false,
+      "score": 0
+    },
+    {
+      "query_id": "Q2",
+      "query": "Theo CTĐT ngành Trí tuệ Nhân tạo K18, nhóm tự chọn ngành cần ít nhất bao nhiêu tín chỉ?",
+      "gold_doc_id": "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+      "gold_answer": "Ít nhất 8 tín chỉ",
+      "top_results": [
+        "\"course-list\"",
+        "\"k18-it-cu-nhan-nganh-cong-nghe-thong-tin-ap-dung-tu-khoa-18-741ba8fe\"",
+        "\"course-list\""
+      ],
+      "found_in_top1": false,
+      "found_in_top3": false,
+      "score": 0
+    },
+    {
+      "query_id": "Q3",
+      "query": "Theo CTĐT Khoa học Máy tính K18, nhóm chuyên ngành yêu cầu tối thiểu bao nhiêu tín chỉ?",
+      "gold_doc_id": "k18-cs-cu-nhan-nganh-khoa-hoc-may-tinh-ap-dung-tu-khoa-18-2-8e0c37e7",
+      "gold_answer": "Ít nhất 16 tín chỉ",
+      "top_results": [
+        "\"course-list\"",
+        "\"course-list\"",
+        "\"course-summaries\""
+      ],
+      "found_in_top1": false,
+      "found_in_top3": false,
+      "score": 0
+    },
+    {
+      "query_id": "Q4",
+      "query": "Trong CTĐT Kỹ thuật Phần mềm K18, nhóm môn tự chọn chuyên ngành là bao nhiêu tín chỉ?",
+      "gold_doc_id": "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c",
+      "gold_answer": "14 tín chỉ",
+      "top_results": [
+        "\"course-summaries\"",
+        "\"course-summaries\"",
+        "\"k18-ds-cu-nhan-nganh-khoa-hoc-du-lieu-ap-dung-tu-khoa-18-20-6bf6ff8a\""
+      ],
+      "found_in_top1": false,
+      "found_in_top3": false,
+      "score": 0
+    },
+    {
+      "query_id": "Q5",
+      "query": "Theo kế hoạch giảng dạy của sinh viên ngành Trí tuệ Nhân tạo K18, IT001 ở học kỳ nào?",
+      "gold_doc_id": "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+      "gold_answer": "Học kỳ 1",
+      "top_results": [],
+      "found_in_top1": false,
+      "found_in_top3": false,
+      "score": 0
+    }
+  ]
+}

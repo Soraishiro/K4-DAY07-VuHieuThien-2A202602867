@@ -1,4 +1,5 @@
 # Ngày 7 — Bài tập
+
 ## Nền tảng Dữ liệu: Embedding & Vector Store | Bài tập thực hành
 
 ---
@@ -34,6 +35,7 @@ Hoàn thành tất cả các TODOs trong `src/chunking.py`, `src/store.py`, và 
 Chạy `pytest tests/` để kiểm tra tiến độ.
 
 ### Danh sách cần làm (Checklist)
+
 - [x] `Document` dataclass — ĐÃ TRIỂN KHAI SẴN
 - [x] `FixedSizeChunker` — ĐÃ TRIỂN KHAI SẴN
 - [ ] `SentenceChunker` — tách dựa trên ranh giới câu, nhóm lại thành các chunks
@@ -64,24 +66,26 @@ Mỗi nhóm chọn một chủ đề (domain) và chuẩn bị bộ tài liệu:
 **Bước 2 — Thu thập 5-10 tài liệu.** Chỉ dùng nguồn công khai hoặc nguồn nhóm có quyền sử dụng; lưu dưới dạng `.txt` hoặc `.md` vào thư mục `data/`.
 
 **Quy tắc dữ liệu bắt buộc:**
+
 - Không đưa dữ liệu cá nhân, thông tin đăng nhập, hồ sơ nội bộ hoặc nội dung có quyền sử dụng không rõ ràng vào repo.
 - Với mỗi tài liệu, ghi `source_url`, `retrieved_at` (ngày lấy) và `document_version` hoặc ngày hiệu lực nếu nguồn có nêu.
 - Đưa ba trường trên vào siêu dữ liệu (metadata) khi nạp (ingest); chúng giúp kiểm tra độ mới và truy vết câu trả lời.
 
 > **Mẹo chuyển PDF sang Markdown:**
+>
 > - `pip install marker-pdf` → `marker_single input.pdf output/` (chất lượng cao, giữ cấu trúc)
 > - `pip install pymupdf4llm` → `pymupdf4llm.to_markdown("input.pdf")` (nhanh, đơn giản)
 > - Hoặc sao chép-dán (copy-paste) nội dung từ PDF/web vào file `.txt`
 
 Ghi vào bảng:
 
-| # | Tên tài liệu | Nguồn (Source URL) | Ngày lấy / Phiên bản | Số ký tự | Metadata đã gán |
-|---|--------------|------------|--------------------|----------|-----------------|
-| 1 | | | | | |
-| 2 | | | | | |
-| 3 | | | | | |
-| 4 | | | | | |
-| 5 | | | | | |
+| #   | Tên tài liệu | Nguồn (Source URL) | Ngày lấy / Phiên bản | Số ký tự | Metadata đã gán |
+| --- | ------------ | ------------------ | -------------------- | -------- | --------------- |
+| 1   |              |                    |                      |          |                 |
+| 2   |              |                    |                      |          |                 |
+| 3   |              |                    |                      |          |                 |
+| 4   |              |                    |                      |          |                 |
+| 5   |              |                    |                      |          |                 |
 
 **Bước 3 — Thiết kế cấu trúc metadata (metadata schema):** Mỗi tài liệu cần `source_url`, `retrieved_at`, `document_version` và ít nhất 2 trường hữu ích cho việc truy xuất (ví dụ: `audience`, `department`, `category`, `language`, `difficulty`).
 
@@ -96,6 +100,7 @@ Mỗi thành viên **tự chọn chiến lược riêng** để thử nghiệm t
 **Bước 1 — Đường cơ sở (Baseline):** Chạy `ChunkingStrategyComparator().compare()` trên 2-3 tài liệu. Ghi lại kết quả.
 
 **Bước 2 — Chọn hoặc thiết kế chiến lược của bạn:**
+
 - Dùng 1 trong 3 chiến lược có sẵn (built-in strategies) với tham số tối ưu, HOẶC
 - Thiết kế chiến lược tùy chỉnh cho chủ đề của bạn (ví dụ: chia nhỏ theo cặp Câu hỏi-Đáp án, theo các phần (sections), theo tiêu đề (headers))
 - Mỗi thành viên nên thử một chiến lược **khác nhau** để có cơ sở so sánh
@@ -122,15 +127,16 @@ class CustomChunker:
 
 Mỗi nhóm viết **đúng 5 câu hỏi đánh giá** kèm theo **câu trả lời chuẩn (gold answers)**.
 
-| # | Câu hỏi (Query) | Câu trả lời chuẩn (Gold Answer) | Chunk nào chứa thông tin? |
-|---|-------|-------------------------------|--------------------------|
-| 1 | | | |
-| 2 | | | |
-| 3 | | | |
-| 4 | | | |
-| 5 | | | |
+| #   | Câu hỏi (Query) | Câu trả lời chuẩn (Gold Answer) | Chunk nào chứa thông tin? |
+| --- | --------------- | ------------------------------- | ------------------------- |
+| 1   |                 |                                 |                           |
+| 2   |                 |                                 |                           |
+| 3   |                 |                                 |                           |
+| 4   |                 |                                 |                           |
+| 5   |                 |                                 |                           |
 
 **Yêu cầu:**
+
 - Câu hỏi phải đa dạng (không hỏi 5 câu có nội dung/cấu trúc giống hệt nhau)
 - Câu trả lời chuẩn phải cụ thể và có thể kiểm chứng (verify) từ tài liệu
 - Ít nhất 1 câu hỏi yêu cầu lọc bằng metadata (metadata filtering) để trả lời tốt
@@ -152,6 +158,7 @@ Gọi hàm `compute_similarity()` trên 5 cặp câu. **Trước khi chạy**, h
 **Bước 1:** Mỗi thành viên chạy 5 câu hỏi đánh giá với chiến lược riêng. Ghi lại kết quả top-3 cho mỗi câu hỏi.
 
 **Bước 2:** So sánh kết quả trong nhóm:
+
 - Chiến lược nào cho việc truy xuất tốt nhất? Tại sao?
 - Có câu hỏi nào mà chiến lược A tốt hơn B nhưng lại ngược lại ở câu hỏi khác không?
 - Lọc bằng metadata (Metadata filtering) có giúp ích không?
@@ -166,6 +173,7 @@ Gọi hàm `compute_similarity()` trên 5 cặp câu. **Trước khi chạy**, h
 ### Bài tập 3.5 — Phân Tích Lỗi (Failure Analysis)
 
 Tìm ít nhất **1 trường hợp lỗi (failure case)** trong quá trình so sánh. Mô tả:
+
 - Câu hỏi nào mà quá trình truy xuất gặp thất bại?
 - Tại sao? (do chunk quá nhỏ/quá lớn, thiếu metadata, câu hỏi mơ hồ, v.v.)
 - Đề xuất cải thiện?

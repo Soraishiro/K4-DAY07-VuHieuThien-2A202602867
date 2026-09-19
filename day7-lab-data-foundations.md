@@ -10,13 +10,43 @@ published: true
 format: "steps"
 day: "D07"
 workMode: "team"
-preparationTipIds: ["huong-dan-cai-vs-code-va-git", "huong-dan-cai-python-va-cau-hinh-python-trong-vs-code", "thiet-lap-venv-voi-pip-va-uv", "huong-dan-tai-bai-lab"]
+preparationTipIds:
+  [
+    "huong-dan-cai-vs-code-va-git",
+    "huong-dan-cai-python-va-cau-hinh-python-trong-vs-code",
+    "thiet-lap-venv-voi-pip-va-uv",
+    "huong-dan-tai-bai-lab",
+  ]
 level: "intermediate"
-prerequisites: ["Biết class, list comprehension và dict trong Python", "Đã hoàn thành Lab 01 (gọi LLM API)"]
-outcomes: ["Giải thích cosine similarity và dự đoán điểm tương đồng giữa hai đoạn text", "Triển khai 3 chiến lược chunking và so sánh bằng số liệu", "Xây dựng vector store có search, metadata filter và delete", "Thu thập corpus công khai đúng chuẩn provenance và robots.txt", "Chỉ ra khi nào retrieval thất bại và đề xuất cách sửa"]
+prerequisites:
+  [
+    "Biết class, list comprehension và dict trong Python",
+    "Đã hoàn thành Lab 01 (gọi LLM API)",
+  ]
+outcomes:
+  [
+    "Giải thích cosine similarity và dự đoán điểm tương đồng giữa hai đoạn text",
+    "Triển khai 3 chiến lược chunking và so sánh bằng số liệu",
+    "Xây dựng vector store có search, metadata filter và delete",
+    "Thu thập corpus công khai đúng chuẩn provenance và robots.txt",
+    "Chỉ ra khi nào retrieval thất bại và đề xuất cách sửa",
+  ]
 supportedOs: ["Windows", "macOS", "Linux"]
-requiredTools: ["Python 3.11 (khuyến nghị) hoặc 3.10+", "pip hoặc uv", "Git + tài khoản GitHub"]
-commonErrors: ["Crawl trang mà robots.txt cấm vì chỉ nhìn 'trang mở công khai là được'", "Dùng thẳng output crawl thô còn menu và tin tức làm corpus", "search_with_filter lọc SAU khi search thay vì trước", "Quên metadata['doc_id'] nên delete_document luôn trả False", "Chấm benchmark theo doc_id nên tưởng đúng mà agent không trả lời được", "Cả nhóm chọn cùng một chiến lược chunking nên không có gì để so sánh"]
+requiredTools:
+  [
+    "Python 3.11 (khuyến nghị) hoặc 3.10+",
+    "pip hoặc uv",
+    "Git + tài khoản GitHub",
+  ]
+commonErrors:
+  [
+    "Crawl trang mà robots.txt cấm vì chỉ nhìn 'trang mở công khai là được'",
+    "Dùng thẳng output crawl thô còn menu và tin tức làm corpus",
+    "search_with_filter lọc SAU khi search thay vì trước",
+    "Quên metadata['doc_id'] nên delete_document luôn trả False",
+    "Chấm benchmark theo doc_id nên tưởng đúng mà agent không trả lời được",
+    "Cả nhóm chọn cùng một chiến lược chunking nên không có gì để so sánh",
+  ]
 requiresSubmission: true
 description: "Học viên hoàn thiện TODO trong src/ (chunking, vector store, RAG agent), crawl corpus dịch vụ/chính sách thực tế đúng chuẩn provenance, rồi so sánh chiến lược retrieval bằng 5 benchmark query."
 ---
@@ -29,25 +59,24 @@ description: "Học viên hoàn thiện TODO trong src/ (chunking, vector store,
 
 ### Lộ trình
 
-| Giai đoạn | Thời gian | Nội dung | Checkpoint |
-| --- | --- | --- | --- |
-| **1. Dữ liệu** 🟦 | 0:00–1:00 | Setup, chọn chủ đề, crawl corpus | **CP1** 0:20 · **CP2** 1:00 |
-| **2. Code cá nhân** 🟩 | 1:00–2:30 | Warm-up + hoàn thiện `src/` | **CP3** 1:45 · **CP4** 2:30 |
-| **3. Chiến lược** | 2:30–3:00 | 5 benchmark query + chiến lược riêng | **CP5** 3:00 |
-| **4. So sánh** 🟦 | 3:00–3:25 | Chạy benchmark, so sánh, phân tích lỗi | **CP6** 3:25 |
-| **5. Demo & nộp** 🟦 | 3:25–4:00 | Thuyết trình, hoàn thiện báo cáo, push | **CP7** 4:00 |
-
+| Giai đoạn              | Thời gian | Nội dung                               | Checkpoint                  |
+| ---------------------- | --------- | -------------------------------------- | --------------------------- |
+| **1. Dữ liệu** 🟦      | 0:00–1:00 | Setup, chọn chủ đề, crawl corpus       | **CP1** 0:20 · **CP2** 1:00 |
+| **2. Code cá nhân** 🟩 | 1:00–2:30 | Warm-up + hoàn thiện `src/`            | **CP3** 1:45 · **CP4** 2:30 |
+| **3. Chiến lược**      | 2:30–3:00 | 5 benchmark query + chiến lược riêng   | **CP5** 3:00                |
+| **4. So sánh** 🟦      | 3:00–3:25 | Chạy benchmark, so sánh, phân tích lỗi | **CP6** 3:25                |
+| **5. Demo & nộp** 🟦   | 3:25–4:00 | Thuyết trình, hoàn thiện báo cáo, push | **CP7** 4:00                |
 
 ### Deliverable
 
-| # | Nộp gì | Ai | Điểm |
-| --- | --- | --- | --- |
-| 1 | `src/` hoàn thiện, `pytest tests/ -v` → 42 passed | Mỗi người | 30 |
-| 2 | `data/<chu-de>/` — 5–10 tài liệu `.md` + `sources.csv` | Nhóm | 10 |
-| 3 | `bench.py` + `ket_qua_benchmark.txt` | Mỗi người | nền cho #4, #5 |
-| 4 | `report/REPORT_CANHAN.md` | Mỗi người | 60 (gồm #1) |
-| 5 | `report/REPORT_NHOM.md` | Nhóm | 40 (gồm #2) |
-| 6 | Repo GitHub `K4-DAY07-HoVaTen-MSSV` + link vlearn | Mỗi người | điều kiện chấm |
+| #   | Nộp gì                                                 | Ai        | Điểm           |
+| --- | ------------------------------------------------------ | --------- | -------------- |
+| 1   | `src/` hoàn thiện, `pytest tests/ -v` → 42 passed      | Mỗi người | 30             |
+| 2   | `data/<chu-de>/` — 5–10 tài liệu `.md` + `sources.csv` | Nhóm      | 10             |
+| 3   | `bench.py` + `ket_qua_benchmark.txt`                   | Mỗi người | nền cho #4, #5 |
+| 4   | `report/REPORT_CANHAN.md`                              | Mỗi người | 60 (gồm #1)    |
+| 5   | `report/REPORT_NHOM.md`                                | Nhóm      | 40 (gồm #2)    |
+| 6   | Repo GitHub `K4-DAY07-HoVaTen-MSSV` + link vlearn      | Mỗi người | điều kiện chấm |
 
 `REPORT_CANHAN.md` hỏi bạn code thế nào và kết quả riêng của bạn ra sao — mỗi người một bản. `REPORT_NHOM.md` hỏi nhóm chọn tài liệu gì, ai thử chiến lược nào, chiến lược nào thắng — cả nhóm chung một bản. Điền dần theo từng checkpoint, đừng dồn về cuối.
 
@@ -116,11 +145,11 @@ Chủ đề bắt buộc của lớp **L3A** là **dịch vụ hoặc quy địn
 
 Nhóm 3 người, mỗi người một vai. Vai là trách nhiệm điều phối cộng thêm — ai cũng vẫn tự code Giai đoạn 2 và tự chạy benchmark riêng.
 
-| Vai | Việc | Hạn |
-| --- | --- | --- |
-| **R1 · Data** | Chốt chủ đề, chia mỗi người 2–3 URL, kiểm metadata từng file, giữ `sources.csv` | CP2 |
-| **R2 · Benchmark** | Viết 5 query + gold answer, tự kiểm mỗi gold answer trích được từ tài liệu thật | CP5 |
-| **R3 · Strategy** | Bảo đảm không ai trùng chiến lược, nhận vai chunk theo heading, chạy baseline cho nhóm | CP5 |
+| Vai                | Việc                                                                                   | Hạn |
+| ------------------ | -------------------------------------------------------------------------------------- | --- |
+| **R1 · Data**      | Chốt chủ đề, chia mỗi người 2–3 URL, kiểm metadata từng file, giữ `sources.csv`        | CP2 |
+| **R2 · Benchmark** | Viết 5 query + gold answer, tự kiểm mỗi gold answer trích được từ tài liệu thật        | CP5 |
+| **R3 · Strategy**  | Bảo đảm không ai trùng chiến lược, nhận vai chunk theo heading, chạy baseline cho nhóm | CP5 |
 
 Nhóm 4 người: người thứ tư làm **Report & Demo Lead**, gom kết quả cả nhóm và dẫn phần thuyết trình.
 
@@ -233,7 +262,7 @@ Giữ nguyên mọi dòng `def ...` — test kiểm tra theo chữ ký hàm. Ch�
 
 Tách câu theo `". "`, `"! "`, `"? "`, `".\n"`, gom `max_sentences_per_chunk` câu thành một chunk, strip khoảng trắng thừa. Text rỗng trả `[]`, không được crash.
 
-Cái bẫy nằm ở regex. Nếu bạn split bằng `[.!?]\s+` thì dấu câu **bị nuốt mất** và mọi chunk thành câu cụt. Tìm cách tách ở vị trí *sau* dấu câu mà vẫn giữ được nó — `re` có cú pháp cho việc này.
+Cái bẫy nằm ở regex. Nếu bạn split bằng `[.!?]\s+` thì dấu câu **bị nuốt mất** và mọi chunk thành câu cụt. Tìm cách tách ở vị trí _sau_ dấu câu mà vẫn giữ được nó — `re` có cú pháp cho việc này.
 
 Ghi vào báo cáo edge case bạn biết là mình chưa xử lý được: chữ viết tắt (`TS.`, `v.v.`) và số thập phân sẽ bị cắt sai. Nêu ra được đánh giá cao hơn giấu đi.
 
@@ -243,8 +272,8 @@ Thử separator theo thứ tự ưu tiên `["\n\n", "\n", ". ", " ", ""]`: cắt
 
 Thuật toán có **hai chiều**, và người ta thường chỉ viết một:
 
-- *Đệ quy xuống sâu:* mảnh nào vẫn dài hơn `chunk_size` thì gọi lại `_split` với danh sách separator còn lại.
-- *Gom lên:* các mảnh nhỏ liền kề phải được nối lại cho tới sát `chunk_size`. Thiếu bước này, một file nhiều dòng ngắn sẽ sinh ra hàng trăm chunk vụn 5–10 ký tự và retrieval sẽ rất tệ.
+- _Đệ quy xuống sâu:_ mảnh nào vẫn dài hơn `chunk_size` thì gọi lại `_split` với danh sách separator còn lại.
+- _Gom lên:_ các mảnh nhỏ liền kề phải được nối lại cho tới sát `chunk_size`. Thiếu bước này, một file nhiều dòng ngắn sẽ sinh ra hàng trăm chunk vụn 5–10 ký tự và retrieval sẽ rất tệ.
 
 Nghĩ kỹ base case. Có ba trường hợp dừng, và test `test_empty_separators_falls_back_gracefully` truyền thẳng `separators=[]` — thiếu nhánh xử lý đó là fail.
 
@@ -274,11 +303,11 @@ Chậm tiến độ thì ưu tiên `SentenceChunker` (comparator cần nó) và 
 
 Làm hai helper trước, bốn method công khai sau. Làm ngược lại bạn sẽ viết lặp cùng một logic bốn lần.
 
-**Về ChromaDB:** bỏ hẳn nhánh Chroma, chỉ dùng in-memory. Không test nào cần nó, `requirements.txt` không cài nó, và code khởi tạo sẵn có một cái bẫy — `self._use_chroma = True` được gán *trước* khi client được tạo. Nếu máy chấm bài tình cờ có `chromadb`, mọi method sẽ rẽ vào nhánh chưa cài đặt và cả 14 test sập.
+**Về ChromaDB:** bỏ hẳn nhánh Chroma, chỉ dùng in-memory. Không test nào cần nó, `requirements.txt` không cài nó, và code khởi tạo sẵn có một cái bẫy — `self._use_chroma = True` được gán _trước_ khi client được tạo. Nếu máy chấm bài tình cờ có `chromadb`, mọi method sẽ rẽ vào nhánh chưa cài đặt và cả 14 test sập.
 
 **`_make_record`** chuẩn hoá một `Document` thành record lưu trong store. Hai chi tiết đáng nghĩ: copy metadata thay vì dùng trực tiếp object của người gọi, và bảo đảm record luôn có khoá `doc_id` trong metadata — `delete_document` phụ thuộc vào nó. Ở CP5 bạn sẽ tạo nhiều `Document` từ một file với id kiểu `"file#0"`, `"file#1"`, nên `doc_id` phải trỏ về **file gốc** chứ không phải id của chunk.
 
-**`_search_records`** chạy similarity search trên một tập record bất kỳ. Tách riêng nó ra vì `search()` và `search_with_filter()` chỉ khác nhau ở *tập ứng viên đầu vào*; cho cả hai đi qua cùng một đường code thì không thể lệch kết quả, và test `test_no_filter_returns_all_candidates` pass hiển nhiên. Kết quả trả về nên bỏ `embedding` đi — vector 1536 chiều làm bẩn output khi in ra terminal.
+**`_search_records`** chạy similarity search trên một tập record bất kỳ. Tách riêng nó ra vì `search()` và `search_with_filter()` chỉ khác nhau ở _tập ứng viên đầu vào_; cho cả hai đi qua cùng một đường code thì không thể lệch kết quả, và test `test_no_filter_returns_all_candidates` pass hiển nhiên. Kết quả trả về nên bỏ `embedding` đi — vector 1536 chiều làm bẩn output khi in ra terminal.
 
 **`search_with_filter`** phải lọc **trước** rồi mới search. Nếu lấy top-k rồi mới bỏ cái không khớp, bạn có thể còn lại 0 kết quả dù store vẫn còn tài liệu hợp lệ — k slot đã bị chiếm hết bởi tài liệu sai. Báo cáo hỏi thẳng câu này, chuẩn bị sẵn câu trả lời.
 
@@ -288,7 +317,7 @@ Làm hai helper trước, bốn method công khai sau. Làm ngược lại bạn
 
 Ba nhịp: truy xuất top-k → dựng prompt có ngữ cảnh → gọi `llm_fn`.
 
-Phần đáng đầu tư là cách dựng ngữ cảnh. Đánh số từng chunk `[1] [2] [3]` kèm nguồn, rồi yêu cầu model trích dẫn số đó khi trả lời — như vậy câu trả lời **truy vết được** về đúng chunk và đúng file. Đây là tiêu chí *Source Traceability* trong `docs/EVALUATION.md`, và với corpus quy định thì nó không phải tính năng phụ.
+Phần đáng đầu tư là cách dựng ngữ cảnh. Đánh số từng chunk `[1] [2] [3]` kèm nguồn, rồi yêu cầu model trích dẫn số đó khi trả lời — như vậy câu trả lời **truy vết được** về đúng chunk và đúng file. Đây là tiêu chí _Source Traceability_ trong `docs/EVALUATION.md`, và với corpus quy định thì nó không phải tính năng phụ.
 
 Thêm ràng buộc chống bịa: chỉ dùng ngữ cảnh được cung cấp, không có thì nói rõ là không tìm thấy. Và xử lý trường hợp store rỗng — trả câu thông báo, đừng crash và đừng gọi LLM vô ích.
 
@@ -367,7 +396,7 @@ Cách chấm ngây thơ là kiểm `doc_id` của tài liệu gold có nằm tro
 
 Một chiến lược hoàn toàn có thể lấy trọn cả ba slot top-3 từ đúng tài liệu gold mà **không chunk nào chứa câu trả lời** — chuyện này hay xảy ra với chunker theo heading, vì các section trong cùng một tài liệu nói về cùng chủ đề nên điểm gần bằng nhau và việc section nào lọt top-3 gần như ngẫu nhiên.
 
-`docs/SCORING.md` yêu cầu *top-3 có chunk liên quan **và** agent trả lời đúng*, nên phải kiểm ở mức nội dung: khai báo cho mỗi câu hỏi một chuỗi đặc trưng phải xuất hiện trong ngữ cảnh truy xuất được, rồi kiểm chuỗi đó có thật không. Chênh lệch giữa hai cách chấm chính là phát hiện đáng giá nhất của buổi lab.
+`docs/SCORING.md` yêu cầu _top-3 có chunk liên quan **và** agent trả lời đúng_, nên phải kiểm ở mức nội dung: khai báo cho mỗi câu hỏi một chuỗi đặc trưng phải xuất hiện trong ngữ cảnh truy xuất được, rồi kiểm chuỗi đó có thật không. Chênh lệch giữa hai cách chấm chính là phát hiện đáng giá nhất của buổi lab.
 
 Thang điểm: 2đ nếu gold ở top-1 và ngữ cảnh chứa đáp án, 1đ nếu gold ở top-2/3, 0đ nếu vắng hoặc ngữ cảnh không trả lời được.
 
@@ -446,21 +475,21 @@ Chọn rating và dán link bài nộp bên dưới, rồi bấm **Xác nhận �
 
 ## 9. Phụ lục A — Lỗi thường gặp
 
-| Triệu chứng | Nguyên nhân | Cách sửa |
-| --- | --- | --- |
-| `ModuleNotFoundError: No module named 'src'` | Chạy python từ thư mục khác | `cd` về thư mục gốc repo |
-| Test store fail dù code trông đúng | `_use_chroma = True` nhưng nhánh Chroma chưa cài đặt | Set `False`, chỉ dùng in-memory |
-| `test_no_filter_returns_all_candidates` fail | `search` và `search_with_filter` dùng hai đường code khác nhau | Cho cả hai gọi chung `_search_records` |
-| `delete_document` luôn trả `False` | Record không có `metadata['doc_id']` | Set `doc_id` trong `_make_record` |
-| `test_empty_separators_falls_back_gracefully` fail | Thiếu base case cho `separators == []` | Thêm nhánh cắt cứng theo `chunk_size` |
-| `ZeroDivisionError` trong `compare` | Chia cho `count == 0` khi text rỗng | Chặn trước khi chia |
-| Chunk vụn 5–10 ký tự | `RecursiveChunker` thiếu bước gom | Nối các mảnh nhỏ liền kề tới sát `chunk_size` |
-| `KeyError` khi đọc kết quả comparator | Tên key gõ sai | So từng ký tự với docstring |
-| Crawler báo `disallowed by robots.txt` | Nguồn không cho truy cập tự động | Đổi nguồn — không phải lỗi cần vượt qua |
-| Crawler crash `LookupError: unknown encoding` | Server trả charset không hợp lệ | Bỏ URL đó khỏi CSV, xử lý riêng |
-| `search_with_filter` luôn trả rỗng | Metadata không được trải vào từng chunk | Gộp frontmatter vào metadata khi tạo `Document` |
-| Filter không đổi kết quả gì | Corpus chỉ có một giá trị `audience`, hoặc hai đáp án nằm chung một file | Tách file theo `audience` |
-| Score âm cho chunk đúng | Đang dùng `MockEmbedder` | Bật embedder thật (Phụ lục B) |
+| Triệu chứng                                        | Nguyên nhân                                                              | Cách sửa                                        |
+| -------------------------------------------------- | ------------------------------------------------------------------------ | ----------------------------------------------- |
+| `ModuleNotFoundError: No module named 'src'`       | Chạy python từ thư mục khác                                              | `cd` về thư mục gốc repo                        |
+| Test store fail dù code trông đúng                 | `_use_chroma = True` nhưng nhánh Chroma chưa cài đặt                     | Set `False`, chỉ dùng in-memory                 |
+| `test_no_filter_returns_all_candidates` fail       | `search` và `search_with_filter` dùng hai đường code khác nhau           | Cho cả hai gọi chung `_search_records`          |
+| `delete_document` luôn trả `False`                 | Record không có `metadata['doc_id']`                                     | Set `doc_id` trong `_make_record`               |
+| `test_empty_separators_falls_back_gracefully` fail | Thiếu base case cho `separators == []`                                   | Thêm nhánh cắt cứng theo `chunk_size`           |
+| `ZeroDivisionError` trong `compare`                | Chia cho `count == 0` khi text rỗng                                      | Chặn trước khi chia                             |
+| Chunk vụn 5–10 ký tự                               | `RecursiveChunker` thiếu bước gom                                        | Nối các mảnh nhỏ liền kề tới sát `chunk_size`   |
+| `KeyError` khi đọc kết quả comparator              | Tên key gõ sai                                                           | So từng ký tự với docstring                     |
+| Crawler báo `disallowed by robots.txt`             | Nguồn không cho truy cập tự động                                         | Đổi nguồn — không phải lỗi cần vượt qua         |
+| Crawler crash `LookupError: unknown encoding`      | Server trả charset không hợp lệ                                          | Bỏ URL đó khỏi CSV, xử lý riêng                 |
+| `search_with_filter` luôn trả rỗng                 | Metadata không được trải vào từng chunk                                  | Gộp frontmatter vào metadata khi tạo `Document` |
+| Filter không đổi kết quả gì                        | Corpus chỉ có một giá trị `audience`, hoặc hai đáp án nằm chung một file | Tách file theo `audience`                       |
+| Score âm cho chunk đúng                            | Đang dùng `MockEmbedder`                                                 | Bật embedder thật (Phụ lục B)                   |
 
 ## 10. Phụ lục B — Bật embedder thật
 

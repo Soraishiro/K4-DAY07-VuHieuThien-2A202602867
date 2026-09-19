@@ -1,0 +1,54 @@
+[
+  {
+    "id": "Q1",
+    "query": "Theo danh mục môn học UIT, CS106 yêu cầu môn học trước nào?",
+    "gold_answer": "IT003",
+    "gold_doc_id": "course-list",
+    "gold_value": "IT003",
+    "evidence": "- prev_code: IT003",
+    "metadata_filter": null,
+    "type": "tra_so_lieu"
+  },
+  {
+    "id": "Q2",
+    "query": "Điều kiện để được đăng ký chuyên ngành Trí tuệ Nhân tạo K18 là gì?",
+    "gold_answer": "Hoàn thành khối kiến thức cơ sở ngành (≥ 57 TC) và đáp ứng điều kiện riêng của ngành",
+    "gold_doc_id": "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+    "gold_value": "Cơ sở ngành ≥ 57 TC",
+    "evidence": "Cơ sở ngành | ≥ 57",
+    "metadata_filter": null,
+    "type": "hoi_dieu_kien"
+  },
+  {
+    "id": "Q3",
+    "query": "Theo kế hoạch giảng dạy K18 AI, IT001 (Nhập môn Lập trình) được dạy ở học kỳ nào?",
+    "gold_answer": "Học kỳ 1",
+    "gold_doc_id": "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+    "gold_value": "Học kỳ 1",
+    "evidence": "Học kỳ 1 | IT001 | Nhập môn Lập trình | 4 | 3 | 1",
+    "metadata_filter": null,
+    "type": "hoi_quy_trinh"
+  },
+  {
+    "id": "Q4",
+    "query": "Liệt kê các môn tự chọn chuyên ngành của Kỹ thuật Phần mềm K18 (14 tín chỉ)",
+    "gold_answer": "14 tín chỉ tự chọn chuyên ngành, bao gồm các môn theo định hướng SE",
+    "gold_doc_id": "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c",
+    "gold_value": "14TC",
+    "evidence": "14TC",
+    "metadata_filter": null,
+    "type": "liet_ke"
+  },
+  {
+    "id": "Q5",
+    "query": "Hạn mượn sách tại thư viện UIT là bao nhiêu ngày?",
+    "gold_answer": "Sinh viên: 21 ngày (sách tham khảo/giáo trình); Giảng viên: 90 ngày (giáo trình), 21 ngày (sách tham khảo)",
+    "gold_doc_id": "library-loan-student",
+    "gold_value": "21 ngày",
+    "evidence": "Hạn mượn sách tham khảo và giáo trình cho sinh viên là 21 ngày",
+    "metadata_filter": {
+      "audience": "student"
+    },
+    "type": "filter_test"
+  }
+]
