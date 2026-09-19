@@ -50,16 +50,44 @@ class LocalEmbedder:
 class OpenAIEmbedder:
     """OpenAI embeddings API-backed embedder."""
 
-    def __init__(self, model_name: str = OPENAI_EMBEDDING_MODEL) -> None:
+    def __init__(self, model_name: str = OPENAI_EMBEDDING_MODEL, batch_size: int = 128) -> None:
         from openai import OpenAI
 
         self.model_name = model_name
         self._backend_name = model_name
+        self._batch_size = batch_size
         self.client = OpenAI()
+        self._cache: dict[str, list[float]] = {}
+
+    def _digest(self, text: str) -> str:
+        return hashlib.md5(text.encode()).hexdigest()
+
+    def embed_many(self, texts: list[str]) -> list[list[float]]:
+        if not texts:
+            return []
+
+        ordered_digests = [self._digest(text) for text in texts]
+        missing_by_digest: dict[str, str] = {}
+        for text, digest in zip(texts, ordered_digests):
+            if digest not in self._cache:
+                missing_by_digest.setdefault(digest, text)
+
+        missing_items = list(missing_by_digest.items())
+        for start in range(0, len(missing_items), self._batch_size):
+            batch_items = missing_items[start : start + self._batch_size]
+            response = self.client.embeddings.create(
+                model=self.model_name,
+                input=[text for _, text in batch_items],
+            )
+            if len(response.data) != len(batch_items):
+                raise RuntimeError("OpenAI embedding response size does not match input size")
+            for (digest, _), item in zip(batch_items, response.data):
+                self._cache[digest] = [float(value) for value in item.embedding]
+
+        return [self._cache[digest] for digest in ordered_digests]
 
     def __call__(self, text: str) -> list[float]:
-        response = self.client.embeddings.create(model=self.model_name, input=text)
-        return [float(value) for value in response.data[0].embedding]
+        return self.embed_many([text])[0]
 
 
 class GeminiEmbedder:

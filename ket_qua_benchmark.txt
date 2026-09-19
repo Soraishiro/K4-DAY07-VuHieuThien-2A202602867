@@ -1,80 +1,1917 @@
 {
-  "chunker": "recursive",
-  "embedding": "mock",
-  "total_score": 1,
-  "max_score": 10,
-  "top1_count": 0,
-  "top3_count": 1,
-  "results": [
-    {
-      "query_id": "Q1",
-      "query": "Theo danh mục môn học UIT, CS106 yêu cầu môn học trước nào?",
-      "gold_doc_id": "course-list",
-      "gold_answer": "IT003",
-      "top_results": [
-        "course-summaries",
-        "course-summaries",
-        "k18-ce-cu-nhan-nganh-ky-thuat-may-tinh-ap-dung-tu-khoa-18-2-02cbbd1e"
-      ],
-      "found_in_top1": false,
-      "found_in_top3": false,
-      "score": 0
+  "fixed": {
+    "chunker": "fixed",
+    "embedding": "openai",
+    "document_count": 12,
+    "chunk_count": 1298,
+    "scoring": {
+      "method": "evidence-aware",
+      "max_score": 10,
+      "rule": "2=top-1 and evidence, 1=top-3 and evidence, 0=no evidence"
     },
-    {
-      "query_id": "Q2",
-      "query": "Điều kiện để được đăng ký chuyên ngành Trí tuệ Nhân tạo K18 là gì?",
-      "gold_doc_id": "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
-      "gold_answer": "Hoàn thành khối kiến thức cơ sở ngành (≥ 57 TC) và đáp ứng điều kiện riêng của ngành",
-      "top_results": [
-        "course-summaries",
-        "course-list",
-        "course-list"
-      ],
-      "found_in_top1": false,
-      "found_in_top3": false,
-      "score": 0
-    },
-    {
-      "query_id": "Q3",
-      "query": "Theo kế hoạch giảng dạy K18 AI, IT001 (Nhập môn Lập trình) được dạy ở học kỳ nào?",
-      "gold_doc_id": "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
-      "gold_answer": "Học kỳ 1",
-      "top_results": [
-        "course-list",
-        "course-list",
-        "course-list"
-      ],
-      "found_in_top1": false,
-      "found_in_top3": false,
-      "score": 0
-    },
-    {
-      "query_id": "Q4",
-      "query": "Liệt kê các môn tự chọn chuyên ngành của Kỹ thuật Phần mềm K18 (14 tín chỉ)",
-      "gold_doc_id": "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c",
-      "gold_answer": "14 tín chỉ tự chọn chuyên ngành, bao gồm các môn theo định hướng SE",
-      "top_results": [
-        "k18-it-cu-nhan-nganh-cong-nghe-thong-tin-ap-dung-tu-khoa-18-741ba8fe",
-        "course-summaries",
-        "course-list"
-      ],
-      "found_in_top1": false,
-      "found_in_top3": false,
-      "score": 0
-    },
-    {
-      "query_id": "Q5",
-      "query": "Hạn mượn sách tại thư viện UIT là bao nhiêu ngày?",
-      "gold_doc_id": "library-loan-student",
-      "gold_answer": "Sinh viên: 21 ngày (sách tham khảo/giáo trình); Giảng viên: 90 ngày (giáo trình), 21 ngày (sách tham khảo)",
-      "top_results": [
-        "k18-cs-cu-nhan-nganh-khoa-hoc-may-tinh-ap-dung-tu-khoa-18-2-8e0c37e7",
-        "k18-it-cu-nhan-nganh-cong-nghe-thong-tin-ap-dung-tu-khoa-18-741ba8fe",
-        "library-loan-student"
-      ],
-      "found_in_top1": false,
-      "found_in_top3": true,
-      "score": 1
+    "total_score": 7,
+    "max_score": 10,
+    "top1_count": 4,
+    "top3_count": 5,
+    "evidence_count": 4,
+    "results": [
+      {
+        "query_id": "Q1",
+        "query": "Theo danh mục môn học UIT, CS106 yêu cầu môn học trước nào?",
+        "query_type": "tra_so_lieu",
+        "gold_doc_id": "course-list",
+        "gold_answer": "IT003",
+        "gold_value": "IT003",
+        "evidence": "- prev_code: IT003",
+        "metadata_filter": null,
+        "top_results": [
+          "course-list",
+          "course-list",
+          "course-list"
+        ],
+        "top_scores": [
+          0.5879931531591751,
+          0.5724303798653523,
+          0.5656684745538314
+        ],
+        "found_in_top1": true,
+        "found_in_top3": true,
+        "evidence_found": true,
+        "evidence_match": "- prev_code: IT003",
+        "evidence_doc_id": "course-list",
+        "agent_answer": "Ngữ cảnh chứa bằng chứng: - prev_code: []",
+        "agent_answer_verified": true,
+        "score": 2,
+        "score_reason": "top-1 và top-3 chứa bằng chứng",
+        "agent_response": "[MOCK LLM] Answer based on context above."
+      },
+      {
+        "query_id": "Q2",
+        "query": "Điều kiện để được đăng ký chuyên ngành Trí tuệ Nhân tạo K18 là gì?",
+        "query_type": "hoi_dieu_kien",
+        "gold_doc_id": "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+        "gold_answer": "Hoàn thành khối kiến thức cơ sở ngành (≥ 57 TC) và đáp ứng điều kiện riêng của ngành",
+        "gold_value": "Cơ sở ngành ≥ 57 TC",
+        "evidence": "Cơ sở ngành | ≥ 57",
+        "metadata_filter": {
+          "department": "ai"
+        },
+        "top_results": [
+          "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+          "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+          "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33"
+        ],
+        "top_scores": [
+          0.5152121707895532,
+          0.4861110922080343,
+          0.4336805487988613
+        ],
+        "found_in_top1": true,
+        "found_in_top3": true,
+        "evidence_found": false,
+        "evidence_match": null,
+        "evidence_doc_id": null,
+        "agent_answer": "Không tìm thấy bằng chứng trong top-3.",
+        "agent_answer_verified": false,
+        "score": 0,
+        "score_reason": "không có bằng chứng trong top-3",
+        "agent_response": "[MOCK LLM] Answer based on context above."
+      },
+      {
+        "query_id": "Q3",
+        "query": "Theo kế hoạch giảng dạy K18 AI, IT001 (Nhập môn Lập trình) được dạy ở học kỳ nào?",
+        "query_type": "hoi_quy_trinh",
+        "gold_doc_id": "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+        "gold_answer": "Học kỳ 1",
+        "gold_value": "Học kỳ 1",
+        "evidence": "Học kỳ 1 | IT001 | Nhập môn Lập trình | 4 | 3 | 1",
+        "metadata_filter": null,
+        "top_results": [
+          "k18-ds-cu-nhan-nganh-khoa-hoc-du-lieu-ap-dung-tu-khoa-18-20-6bf6ff8a",
+          "course-summaries",
+          "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33"
+        ],
+        "top_scores": [
+          0.612814858178865,
+          0.5815116510902385,
+          0.5610282724205433
+        ],
+        "found_in_top1": false,
+        "found_in_top3": true,
+        "evidence_found": true,
+        "evidence_match": "Học kỳ 1 | IT001 | Nhập môn Lập trình | 4 | 3 | 1",
+        "evidence_doc_id": "k18-ds-cu-nhan-nganh-khoa-hoc-du-lieu-ap-dung-tu-khoa-18-20-6bf6ff8a",
+        "agent_answer": "Ngữ cảnh chứa bằng chứng: 1 | IT001 | Nhập môn Lập trình | 4 | 3 | 1",
+        "agent_answer_verified": true,
+        "score": 1,
+        "score_reason": "top-3 chứa bằng chứng nhưng không ở top-1",
+        "agent_response": "[MOCK LLM] Answer based on context above."
+      },
+      {
+        "query_id": "Q4",
+        "query": "Liệt kê các môn tự chọn chuyên ngành của Kỹ thuật Phần mềm K18 (14 tín chỉ)",
+        "query_type": "liet_ke",
+        "gold_doc_id": "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c",
+        "gold_answer": "14 tín chỉ tự chọn chuyên ngành, bao gồm các môn theo định hướng SE",
+        "gold_value": "14TC",
+        "evidence": "14TC",
+        "metadata_filter": {
+          "department": "se"
+        },
+        "top_results": [
+          "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c",
+          "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c",
+          "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c"
+        ],
+        "top_scores": [
+          0.6451733524932024,
+          0.6139499077801247,
+          0.6073622260055345
+        ],
+        "found_in_top1": true,
+        "found_in_top3": true,
+        "evidence_found": true,
+        "evidence_match": "14TC",
+        "evidence_doc_id": "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c",
+        "agent_answer": "Ngữ cảnh chứa bằng chứng: ### 3.4.2 Nhóm các môn học tự chọn chuyên ngành: 14TC",
+        "agent_answer_verified": true,
+        "score": 2,
+        "score_reason": "top-1 và top-3 chứa bằng chứng",
+        "agent_response": "[MOCK LLM] Answer based on context above."
+      },
+      {
+        "query_id": "Q5",
+        "query": "Hạn mượn sách tại thư viện UIT là bao nhiêu ngày?",
+        "query_type": "filter_test",
+        "gold_doc_id": "library-loan-student",
+        "gold_answer": "Sinh viên: 21 ngày (sách tham khảo/giáo trình); Giảng viên: 90 ngày (giáo trình), 21 ngày (sách tham khảo)",
+        "gold_value": "21 ngày",
+        "evidence": "Hạn mượn sách tham khảo và giáo trình cho sinh viên là 21 ngày",
+        "metadata_filter": {
+          "audience": "student"
+        },
+        "top_results": [
+          "library-loan-student",
+          "library-loan-student",
+          "library-loan-student"
+        ],
+        "top_scores": [
+          0.6735860601597778,
+          0.6426895067700684,
+          0.5814826279803356
+        ],
+        "found_in_top1": true,
+        "found_in_top3": true,
+        "evidence_found": true,
+        "evidence_match": "Hạn mượn sách tham khảo và giáo trình cho sinh viên là 21 ngày",
+        "evidence_doc_id": "library-loan-student",
+        "agent_answer": "Ngữ cảnh chứa bằng chứng: > **Ghi chú:** Hạn mượn sách tham khảo và giáo trình cho sinh viên là **21 ngày**. Có thể gia hạn 2 lần, mỗi lần 7 ngày.",
+        "agent_answer_verified": true,
+        "score": 2,
+        "score_reason": "top-1 và top-3 chứa bằng chứng",
+        "agent_response": "[MOCK LLM] Answer based on context above."
+      }
+    ],
+    "ab_tests": {
+      "Q2": {
+        "query_id": "Q2",
+        "query": "Điều kiện để được đăng ký chuyên ngành Trí tuệ Nhân tạo K18 là gì?",
+        "metadata_filter": {
+          "department": "ai"
+        },
+        "without_filter": {
+          "query_id": "Q2",
+          "query": "Điều kiện để được đăng ký chuyên ngành Trí tuệ Nhân tạo K18 là gì?",
+          "query_type": "hoi_dieu_kien",
+          "gold_doc_id": "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+          "gold_answer": "Hoàn thành khối kiến thức cơ sở ngành (≥ 57 TC) và đáp ứng điều kiện riêng của ngành",
+          "gold_value": "Cơ sở ngành ≥ 57 TC",
+          "evidence": "Cơ sở ngành | ≥ 57",
+          "metadata_filter": {
+            "department": "ai"
+          },
+          "top_results": [
+            "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+            "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+            "course-list"
+          ],
+          "top_scores": [
+            0.5152121707895532,
+            0.4861110922080343,
+            0.4832089722252988
+          ],
+          "found_in_top1": true,
+          "found_in_top3": true,
+          "evidence_found": false,
+          "evidence_match": null,
+          "evidence_doc_id": null,
+          "agent_answer": "Không tìm thấy bằng chứng trong top-3.",
+          "agent_answer_verified": false,
+          "score": 0,
+          "score_reason": "không có bằng chứng trong top-3"
+        },
+        "with_filter": {
+          "query_id": "Q2",
+          "query": "Điều kiện để được đăng ký chuyên ngành Trí tuệ Nhân tạo K18 là gì?",
+          "query_type": "hoi_dieu_kien",
+          "gold_doc_id": "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+          "gold_answer": "Hoàn thành khối kiến thức cơ sở ngành (≥ 57 TC) và đáp ứng điều kiện riêng của ngành",
+          "gold_value": "Cơ sở ngành ≥ 57 TC",
+          "evidence": "Cơ sở ngành | ≥ 57",
+          "metadata_filter": {
+            "department": "ai"
+          },
+          "top_results": [
+            "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+            "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+            "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33"
+          ],
+          "top_scores": [
+            0.5152121707895532,
+            0.4861110922080343,
+            0.4336805487988613
+          ],
+          "found_in_top1": true,
+          "found_in_top3": true,
+          "evidence_found": false,
+          "evidence_match": null,
+          "evidence_doc_id": null,
+          "agent_answer": "Không tìm thấy bằng chứng trong top-3.",
+          "agent_answer_verified": false,
+          "score": 0,
+          "score_reason": "không có bằng chứng trong top-3"
+        }
+      },
+      "Q4": {
+        "query_id": "Q4",
+        "query": "Liệt kê các môn tự chọn chuyên ngành của Kỹ thuật Phần mềm K18 (14 tín chỉ)",
+        "metadata_filter": {
+          "department": "se"
+        },
+        "without_filter": {
+          "query_id": "Q4",
+          "query": "Liệt kê các môn tự chọn chuyên ngành của Kỹ thuật Phần mềm K18 (14 tín chỉ)",
+          "query_type": "liet_ke",
+          "gold_doc_id": "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c",
+          "gold_answer": "14 tín chỉ tự chọn chuyên ngành, bao gồm các môn theo định hướng SE",
+          "gold_value": "14TC",
+          "evidence": "14TC",
+          "metadata_filter": {
+            "department": "se"
+          },
+          "top_results": [
+            "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c",
+            "k18-ce-cu-nhan-nganh-ky-thuat-may-tinh-ap-dung-tu-khoa-18-2-02cbbd1e",
+            "k18-ce-cu-nhan-nganh-ky-thuat-may-tinh-ap-dung-tu-khoa-18-2-02cbbd1e"
+          ],
+          "top_scores": [
+            0.6451733524932024,
+            0.628416457676849,
+            0.6249070767194098
+          ],
+          "found_in_top1": true,
+          "found_in_top3": true,
+          "evidence_found": false,
+          "evidence_match": null,
+          "evidence_doc_id": null,
+          "agent_answer": "Không tìm thấy bằng chứng trong top-3.",
+          "agent_answer_verified": false,
+          "score": 0,
+          "score_reason": "không có bằng chứng trong top-3"
+        },
+        "with_filter": {
+          "query_id": "Q4",
+          "query": "Liệt kê các môn tự chọn chuyên ngành của Kỹ thuật Phần mềm K18 (14 tín chỉ)",
+          "query_type": "liet_ke",
+          "gold_doc_id": "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c",
+          "gold_answer": "14 tín chỉ tự chọn chuyên ngành, bao gồm các môn theo định hướng SE",
+          "gold_value": "14TC",
+          "evidence": "14TC",
+          "metadata_filter": {
+            "department": "se"
+          },
+          "top_results": [
+            "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c",
+            "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c",
+            "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c"
+          ],
+          "top_scores": [
+            0.6451733524932024,
+            0.6139499077801247,
+            0.6073622260055345
+          ],
+          "found_in_top1": true,
+          "found_in_top3": true,
+          "evidence_found": true,
+          "evidence_match": "14TC",
+          "evidence_doc_id": "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c",
+          "agent_answer": "Ngữ cảnh chứa bằng chứng: ### 3.4.2 Nhóm các môn học tự chọn chuyên ngành: 14TC",
+          "agent_answer_verified": true,
+          "score": 2,
+          "score_reason": "top-1 và top-3 chứa bằng chứng"
+        }
+      },
+      "Q5": {
+        "query_id": "Q5",
+        "query": "Hạn mượn sách tại thư viện UIT là bao nhiêu ngày?",
+        "metadata_filter": {
+          "audience": "student"
+        },
+        "without_filter": {
+          "query_id": "Q5",
+          "query": "Hạn mượn sách tại thư viện UIT là bao nhiêu ngày?",
+          "query_type": "filter_test",
+          "gold_doc_id": "library-loan-student",
+          "gold_answer": "Sinh viên: 21 ngày (sách tham khảo/giáo trình); Giảng viên: 90 ngày (giáo trình), 21 ngày (sách tham khảo)",
+          "gold_value": "21 ngày",
+          "evidence": "Hạn mượn sách tham khảo và giáo trình cho sinh viên là 21 ngày",
+          "metadata_filter": {
+            "audience": "student"
+          },
+          "top_results": [
+            "library-loan-student",
+            "library-loan-student",
+            "library-loan-faculty"
+          ],
+          "top_scores": [
+            0.6735860601597778,
+            0.6426895067700684,
+            0.6424825106739718
+          ],
+          "found_in_top1": true,
+          "found_in_top3": true,
+          "evidence_found": true,
+          "evidence_match": "Hạn mượn sách tham khảo và giáo trình cho sinh viên là 21 ngày",
+          "evidence_doc_id": "library-loan-student",
+          "agent_answer": "Ngữ cảnh chứa bằng chứng: > **Ghi chú:** Hạn mượn sách tham khảo và giáo trình cho sinh viên là **21 ngày**. Có thể gia hạn 2 lần, mỗi lần 7 ngày.",
+          "agent_answer_verified": true,
+          "score": 2,
+          "score_reason": "top-1 và top-3 chứa bằng chứng"
+        },
+        "with_filter": {
+          "query_id": "Q5",
+          "query": "Hạn mượn sách tại thư viện UIT là bao nhiêu ngày?",
+          "query_type": "filter_test",
+          "gold_doc_id": "library-loan-student",
+          "gold_answer": "Sinh viên: 21 ngày (sách tham khảo/giáo trình); Giảng viên: 90 ngày (giáo trình), 21 ngày (sách tham khảo)",
+          "gold_value": "21 ngày",
+          "evidence": "Hạn mượn sách tham khảo và giáo trình cho sinh viên là 21 ngày",
+          "metadata_filter": {
+            "audience": "student"
+          },
+          "top_results": [
+            "library-loan-student",
+            "library-loan-student",
+            "library-loan-student"
+          ],
+          "top_scores": [
+            0.6735860601597778,
+            0.6426895067700684,
+            0.5814826279803356
+          ],
+          "found_in_top1": true,
+          "found_in_top3": true,
+          "evidence_found": true,
+          "evidence_match": "Hạn mượn sách tham khảo và giáo trình cho sinh viên là 21 ngày",
+          "evidence_doc_id": "library-loan-student",
+          "agent_answer": "Ngữ cảnh chứa bằng chứng: > **Ghi chú:** Hạn mượn sách tham khảo và giáo trình cho sinh viên là **21 ngày**. Có thể gia hạn 2 lần, mỗi lần 7 ngày.",
+          "agent_answer_verified": true,
+          "score": 2,
+          "score_reason": "top-1 và top-3 chứa bằng chứng"
+        }
+      }
     }
-  ]
+  },
+  "sentence": {
+    "chunker": "sentence",
+    "embedding": "openai",
+    "document_count": 12,
+    "chunk_count": 684,
+    "scoring": {
+      "method": "evidence-aware",
+      "max_score": 10,
+      "rule": "2=top-1 and evidence, 1=top-3 and evidence, 0=no evidence"
+    },
+    "total_score": 7,
+    "max_score": 10,
+    "top1_count": 3,
+    "top3_count": 4,
+    "evidence_count": 5,
+    "results": [
+      {
+        "query_id": "Q1",
+        "query": "Theo danh mục môn học UIT, CS106 yêu cầu môn học trước nào?",
+        "query_type": "tra_so_lieu",
+        "gold_doc_id": "course-list",
+        "gold_answer": "IT003",
+        "gold_value": "IT003",
+        "evidence": "- prev_code: IT003",
+        "metadata_filter": null,
+        "top_results": [
+          "k18-it-cu-nhan-nganh-cong-nghe-thong-tin-ap-dung-tu-khoa-18-741ba8fe",
+          "course-list",
+          "course-list"
+        ],
+        "top_scores": [
+          0.5757460093385447,
+          0.5740257831466806,
+          0.5694639814730067
+        ],
+        "found_in_top1": false,
+        "found_in_top3": true,
+        "evidence_found": true,
+        "evidence_match": "- prev_code: IT003",
+        "evidence_doc_id": "course-list",
+        "agent_answer": "Ngữ cảnh chứa bằng chứng: - prev_code: []",
+        "agent_answer_verified": true,
+        "score": 1,
+        "score_reason": "top-3 chứa bằng chứng nhưng không ở top-1",
+        "agent_response": "[MOCK LLM] Answer based on context above."
+      },
+      {
+        "query_id": "Q2",
+        "query": "Điều kiện để được đăng ký chuyên ngành Trí tuệ Nhân tạo K18 là gì?",
+        "query_type": "hoi_dieu_kien",
+        "gold_doc_id": "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+        "gold_answer": "Hoàn thành khối kiến thức cơ sở ngành (≥ 57 TC) và đáp ứng điều kiện riêng của ngành",
+        "gold_value": "Cơ sở ngành ≥ 57 TC",
+        "evidence": "Cơ sở ngành | ≥ 57",
+        "metadata_filter": {
+          "department": "ai"
+        },
+        "top_results": [
+          "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+          "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+          "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33"
+        ],
+        "top_scores": [
+          0.47347771539511996,
+          0.4546072669293153,
+          0.44723723012177174
+        ],
+        "found_in_top1": true,
+        "found_in_top3": true,
+        "evidence_found": true,
+        "evidence_match": "Cơ sở ngành | ≥ 57",
+        "evidence_doc_id": "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+        "agent_answer": "Ngữ cảnh chứa bằng chứng: Khối kiến thức giáo dục chuyên nghiệp (73 TC) | Cơ sở ngành | ≥ 57 |",
+        "agent_answer_verified": true,
+        "score": 2,
+        "score_reason": "top-1 và top-3 chứa bằng chứng",
+        "agent_response": "[MOCK LLM] Answer based on context above."
+      },
+      {
+        "query_id": "Q3",
+        "query": "Theo kế hoạch giảng dạy K18 AI, IT001 (Nhập môn Lập trình) được dạy ở học kỳ nào?",
+        "query_type": "hoi_quy_trinh",
+        "gold_doc_id": "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+        "gold_answer": "Học kỳ 1",
+        "gold_value": "Học kỳ 1",
+        "evidence": "Học kỳ 1 | IT001 | Nhập môn Lập trình | 4 | 3 | 1",
+        "metadata_filter": null,
+        "top_results": [
+          "course-summaries",
+          "k18-is-cu-nhan-nganh-he-thong-thong-tin-ap-dung-tu-khoa-18-994381a5",
+          "k18-ce-cu-nhan-nganh-ky-thuat-may-tinh-ap-dung-tu-khoa-18-2-02cbbd1e"
+        ],
+        "top_scores": [
+          0.5976014656882853,
+          0.5893982491026577,
+          0.5552183426897273
+        ],
+        "found_in_top1": false,
+        "found_in_top3": false,
+        "evidence_found": true,
+        "evidence_match": "Học kỳ 1 | IT001 | Nhập môn Lập trình | 4 | 3 | 1",
+        "evidence_doc_id": "course-summaries",
+        "agent_answer": "Ngữ cảnh chứa bằng chứng: ## IT001 — Nhập môn lập trình",
+        "agent_answer_verified": true,
+        "score": 0,
+        "score_reason": "không có bằng chứng trong top-3",
+        "agent_response": "[MOCK LLM] Answer based on context above."
+      },
+      {
+        "query_id": "Q4",
+        "query": "Liệt kê các môn tự chọn chuyên ngành của Kỹ thuật Phần mềm K18 (14 tín chỉ)",
+        "query_type": "liet_ke",
+        "gold_doc_id": "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c",
+        "gold_answer": "14 tín chỉ tự chọn chuyên ngành, bao gồm các môn theo định hướng SE",
+        "gold_value": "14TC",
+        "evidence": "14TC",
+        "metadata_filter": {
+          "department": "se"
+        },
+        "top_results": [
+          "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c",
+          "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c",
+          "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c"
+        ],
+        "top_scores": [
+          0.6150452661494796,
+          0.5958653178072382,
+          0.5808974971716339
+        ],
+        "found_in_top1": true,
+        "found_in_top3": true,
+        "evidence_found": true,
+        "evidence_match": "14TC",
+        "evidence_doc_id": "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c",
+        "agent_answer": "Ngữ cảnh chứa bằng chứng: ### 3.4.2 Nhóm các môn học tự chọn chuyên ngành: 14TC",
+        "agent_answer_verified": true,
+        "score": 2,
+        "score_reason": "top-1 và top-3 chứa bằng chứng",
+        "agent_response": "[MOCK LLM] Answer based on context above."
+      },
+      {
+        "query_id": "Q5",
+        "query": "Hạn mượn sách tại thư viện UIT là bao nhiêu ngày?",
+        "query_type": "filter_test",
+        "gold_doc_id": "library-loan-student",
+        "gold_answer": "Sinh viên: 21 ngày (sách tham khảo/giáo trình); Giảng viên: 90 ngày (giáo trình), 21 ngày (sách tham khảo)",
+        "gold_value": "21 ngày",
+        "evidence": "Hạn mượn sách tham khảo và giáo trình cho sinh viên là 21 ngày",
+        "metadata_filter": {
+          "audience": "student"
+        },
+        "top_results": [
+          "library-loan-student",
+          "library-loan-student",
+          "k18-it-cu-nhan-nganh-cong-nghe-thong-tin-ap-dung-tu-khoa-18-741ba8fe"
+        ],
+        "top_scores": [
+          0.7387689231132981,
+          0.694207144492573,
+          0.38114638455340355
+        ],
+        "found_in_top1": true,
+        "found_in_top3": true,
+        "evidence_found": true,
+        "evidence_match": "Hạn mượn sách tham khảo và giáo trình cho sinh viên là 21 ngày",
+        "evidence_doc_id": "library-loan-student",
+        "agent_answer": "Ngữ cảnh chứa bằng chứng: > **Ghi chú:** Hạn mượn sách tham khảo và giáo trình cho sinh viên là **21 ngày**. Có thể gia hạn 2 lần, mỗi lần 7 ngày.",
+        "agent_answer_verified": true,
+        "score": 2,
+        "score_reason": "top-1 và top-3 chứa bằng chứng",
+        "agent_response": "[MOCK LLM] Answer based on context above."
+      }
+    ],
+    "ab_tests": {
+      "Q2": {
+        "query_id": "Q2",
+        "query": "Điều kiện để được đăng ký chuyên ngành Trí tuệ Nhân tạo K18 là gì?",
+        "metadata_filter": {
+          "department": "ai"
+        },
+        "without_filter": {
+          "query_id": "Q2",
+          "query": "Điều kiện để được đăng ký chuyên ngành Trí tuệ Nhân tạo K18 là gì?",
+          "query_type": "hoi_dieu_kien",
+          "gold_doc_id": "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+          "gold_answer": "Hoàn thành khối kiến thức cơ sở ngành (≥ 57 TC) và đáp ứng điều kiện riêng của ngành",
+          "gold_value": "Cơ sở ngành ≥ 57 TC",
+          "evidence": "Cơ sở ngành | ≥ 57",
+          "metadata_filter": {
+            "department": "ai"
+          },
+          "top_results": [
+            "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+            "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+            "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33"
+          ],
+          "top_scores": [
+            0.47347771539511996,
+            0.4546072669293153,
+            0.44723723012177174
+          ],
+          "found_in_top1": true,
+          "found_in_top3": true,
+          "evidence_found": true,
+          "evidence_match": "Cơ sở ngành | ≥ 57",
+          "evidence_doc_id": "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+          "agent_answer": "Ngữ cảnh chứa bằng chứng: Khối kiến thức giáo dục chuyên nghiệp (73 TC) | Cơ sở ngành | ≥ 57 |",
+          "agent_answer_verified": true,
+          "score": 2,
+          "score_reason": "top-1 và top-3 chứa bằng chứng"
+        },
+        "with_filter": {
+          "query_id": "Q2",
+          "query": "Điều kiện để được đăng ký chuyên ngành Trí tuệ Nhân tạo K18 là gì?",
+          "query_type": "hoi_dieu_kien",
+          "gold_doc_id": "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+          "gold_answer": "Hoàn thành khối kiến thức cơ sở ngành (≥ 57 TC) và đáp ứng điều kiện riêng của ngành",
+          "gold_value": "Cơ sở ngành ≥ 57 TC",
+          "evidence": "Cơ sở ngành | ≥ 57",
+          "metadata_filter": {
+            "department": "ai"
+          },
+          "top_results": [
+            "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+            "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+            "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33"
+          ],
+          "top_scores": [
+            0.47347771539511996,
+            0.4546072669293153,
+            0.44723723012177174
+          ],
+          "found_in_top1": true,
+          "found_in_top3": true,
+          "evidence_found": true,
+          "evidence_match": "Cơ sở ngành | ≥ 57",
+          "evidence_doc_id": "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+          "agent_answer": "Ngữ cảnh chứa bằng chứng: Khối kiến thức giáo dục chuyên nghiệp (73 TC) | Cơ sở ngành | ≥ 57 |",
+          "agent_answer_verified": true,
+          "score": 2,
+          "score_reason": "top-1 và top-3 chứa bằng chứng"
+        }
+      },
+      "Q4": {
+        "query_id": "Q4",
+        "query": "Liệt kê các môn tự chọn chuyên ngành của Kỹ thuật Phần mềm K18 (14 tín chỉ)",
+        "metadata_filter": {
+          "department": "se"
+        },
+        "without_filter": {
+          "query_id": "Q4",
+          "query": "Liệt kê các môn tự chọn chuyên ngành của Kỹ thuật Phần mềm K18 (14 tín chỉ)",
+          "query_type": "liet_ke",
+          "gold_doc_id": "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c",
+          "gold_answer": "14 tín chỉ tự chọn chuyên ngành, bao gồm các môn theo định hướng SE",
+          "gold_value": "14TC",
+          "evidence": "14TC",
+          "metadata_filter": {
+            "department": "se"
+          },
+          "top_results": [
+            "k18-ce-cu-nhan-nganh-ky-thuat-may-tinh-ap-dung-tu-khoa-18-2-02cbbd1e",
+            "k18-it-cu-nhan-nganh-cong-nghe-thong-tin-ap-dung-tu-khoa-18-741ba8fe",
+            "k18-ce-cu-nhan-nganh-ky-thuat-may-tinh-ap-dung-tu-khoa-18-2-02cbbd1e"
+          ],
+          "top_scores": [
+            0.6258487082261581,
+            0.6258481836415228,
+            0.6186574727650509
+          ],
+          "found_in_top1": false,
+          "found_in_top3": false,
+          "evidence_found": false,
+          "evidence_match": null,
+          "evidence_doc_id": null,
+          "agent_answer": "Không tìm thấy bằng chứng trong top-3.",
+          "agent_answer_verified": false,
+          "score": 0,
+          "score_reason": "không có bằng chứng trong top-3"
+        },
+        "with_filter": {
+          "query_id": "Q4",
+          "query": "Liệt kê các môn tự chọn chuyên ngành của Kỹ thuật Phần mềm K18 (14 tín chỉ)",
+          "query_type": "liet_ke",
+          "gold_doc_id": "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c",
+          "gold_answer": "14 tín chỉ tự chọn chuyên ngành, bao gồm các môn theo định hướng SE",
+          "gold_value": "14TC",
+          "evidence": "14TC",
+          "metadata_filter": {
+            "department": "se"
+          },
+          "top_results": [
+            "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c",
+            "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c",
+            "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c"
+          ],
+          "top_scores": [
+            0.6150452661494796,
+            0.5958653178072382,
+            0.5808974971716339
+          ],
+          "found_in_top1": true,
+          "found_in_top3": true,
+          "evidence_found": true,
+          "evidence_match": "14TC",
+          "evidence_doc_id": "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c",
+          "agent_answer": "Ngữ cảnh chứa bằng chứng: ### 3.4.2 Nhóm các môn học tự chọn chuyên ngành: 14TC",
+          "agent_answer_verified": true,
+          "score": 2,
+          "score_reason": "top-1 và top-3 chứa bằng chứng"
+        }
+      },
+      "Q5": {
+        "query_id": "Q5",
+        "query": "Hạn mượn sách tại thư viện UIT là bao nhiêu ngày?",
+        "metadata_filter": {
+          "audience": "student"
+        },
+        "without_filter": {
+          "query_id": "Q5",
+          "query": "Hạn mượn sách tại thư viện UIT là bao nhiêu ngày?",
+          "query_type": "filter_test",
+          "gold_doc_id": "library-loan-student",
+          "gold_answer": "Sinh viên: 21 ngày (sách tham khảo/giáo trình); Giảng viên: 90 ngày (giáo trình), 21 ngày (sách tham khảo)",
+          "gold_value": "21 ngày",
+          "evidence": "Hạn mượn sách tham khảo và giáo trình cho sinh viên là 21 ngày",
+          "metadata_filter": {
+            "audience": "student"
+          },
+          "top_results": [
+            "library-loan-student",
+            "library-loan-student",
+            "library-loan-faculty"
+          ],
+          "top_scores": [
+            0.7387689231132981,
+            0.694207144492573,
+            0.6925441969574422
+          ],
+          "found_in_top1": true,
+          "found_in_top3": true,
+          "evidence_found": true,
+          "evidence_match": "Hạn mượn sách tham khảo và giáo trình cho sinh viên là 21 ngày",
+          "evidence_doc_id": "library-loan-student",
+          "agent_answer": "Ngữ cảnh chứa bằng chứng: > **Ghi chú:** Hạn mượn sách tham khảo và giáo trình cho sinh viên là **21 ngày**. Có thể gia hạn 2 lần, mỗi lần 7 ngày.",
+          "agent_answer_verified": true,
+          "score": 2,
+          "score_reason": "top-1 và top-3 chứa bằng chứng"
+        },
+        "with_filter": {
+          "query_id": "Q5",
+          "query": "Hạn mượn sách tại thư viện UIT là bao nhiêu ngày?",
+          "query_type": "filter_test",
+          "gold_doc_id": "library-loan-student",
+          "gold_answer": "Sinh viên: 21 ngày (sách tham khảo/giáo trình); Giảng viên: 90 ngày (giáo trình), 21 ngày (sách tham khảo)",
+          "gold_value": "21 ngày",
+          "evidence": "Hạn mượn sách tham khảo và giáo trình cho sinh viên là 21 ngày",
+          "metadata_filter": {
+            "audience": "student"
+          },
+          "top_results": [
+            "library-loan-student",
+            "library-loan-student",
+            "k18-it-cu-nhan-nganh-cong-nghe-thong-tin-ap-dung-tu-khoa-18-741ba8fe"
+          ],
+          "top_scores": [
+            0.7387689231132981,
+            0.694207144492573,
+            0.38114638455340355
+          ],
+          "found_in_top1": true,
+          "found_in_top3": true,
+          "evidence_found": true,
+          "evidence_match": "Hạn mượn sách tham khảo và giáo trình cho sinh viên là 21 ngày",
+          "evidence_doc_id": "library-loan-student",
+          "agent_answer": "Ngữ cảnh chứa bằng chứng: > **Ghi chú:** Hạn mượn sách tham khảo và giáo trình cho sinh viên là **21 ngày**. Có thể gia hạn 2 lần, mỗi lần 7 ngày.",
+          "agent_answer_verified": true,
+          "score": 2,
+          "score_reason": "top-1 và top-3 chứa bằng chứng"
+        }
+      }
+    }
+  },
+  "recursive": {
+    "chunker": "recursive",
+    "embedding": "openai",
+    "document_count": 12,
+    "chunk_count": 1687,
+    "scoring": {
+      "method": "evidence-aware",
+      "max_score": 10,
+      "rule": "2=top-1 and evidence, 1=top-3 and evidence, 0=no evidence"
+    },
+    "total_score": 5,
+    "max_score": 10,
+    "top1_count": 3,
+    "top3_count": 4,
+    "evidence_count": 4,
+    "results": [
+      {
+        "query_id": "Q1",
+        "query": "Theo danh mục môn học UIT, CS106 yêu cầu môn học trước nào?",
+        "query_type": "tra_so_lieu",
+        "gold_doc_id": "course-list",
+        "gold_answer": "IT003",
+        "gold_value": "IT003",
+        "evidence": "- prev_code: IT003",
+        "metadata_filter": null,
+        "top_results": [
+          "k18-it-cu-nhan-nganh-cong-nghe-thong-tin-ap-dung-tu-khoa-18-741ba8fe",
+          "course-list",
+          "course-list"
+        ],
+        "top_scores": [
+          0.5861246213224263,
+          0.5733175144677034,
+          0.5709799178727053
+        ],
+        "found_in_top1": false,
+        "found_in_top3": true,
+        "evidence_found": true,
+        "evidence_match": "- prev_code: IT003",
+        "evidence_doc_id": "course-list",
+        "agent_answer": "Ngữ cảnh chứa bằng chứng: - prev_code: []",
+        "agent_answer_verified": true,
+        "score": 1,
+        "score_reason": "top-3 chứa bằng chứng nhưng không ở top-1",
+        "agent_response": "[MOCK LLM] Answer based on context above."
+      },
+      {
+        "query_id": "Q2",
+        "query": "Điều kiện để được đăng ký chuyên ngành Trí tuệ Nhân tạo K18 là gì?",
+        "query_type": "hoi_dieu_kien",
+        "gold_doc_id": "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+        "gold_answer": "Hoàn thành khối kiến thức cơ sở ngành (≥ 57 TC) và đáp ứng điều kiện riêng của ngành",
+        "gold_value": "Cơ sở ngành ≥ 57 TC",
+        "evidence": "Cơ sở ngành | ≥ 57",
+        "metadata_filter": {
+          "department": "ai"
+        },
+        "top_results": [
+          "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+          "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+          "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33"
+        ],
+        "top_scores": [
+          0.5101137418172357,
+          0.42321895661643794,
+          0.40690932105735556
+        ],
+        "found_in_top1": true,
+        "found_in_top3": true,
+        "evidence_found": false,
+        "evidence_match": null,
+        "evidence_doc_id": null,
+        "agent_answer": "Không tìm thấy bằng chứng trong top-3.",
+        "agent_answer_verified": false,
+        "score": 0,
+        "score_reason": "không có bằng chứng trong top-3",
+        "agent_response": "[MOCK LLM] Answer based on context above."
+      },
+      {
+        "query_id": "Q3",
+        "query": "Theo kế hoạch giảng dạy K18 AI, IT001 (Nhập môn Lập trình) được dạy ở học kỳ nào?",
+        "query_type": "hoi_quy_trinh",
+        "gold_doc_id": "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+        "gold_answer": "Học kỳ 1",
+        "gold_value": "Học kỳ 1",
+        "evidence": "Học kỳ 1 | IT001 | Nhập môn Lập trình | 4 | 3 | 1",
+        "metadata_filter": null,
+        "top_results": [
+          "course-summaries",
+          "course-list",
+          "k18-it-cu-nhan-nganh-cong-nghe-thong-tin-ap-dung-tu-khoa-18-741ba8fe"
+        ],
+        "top_scores": [
+          0.5928587567589148,
+          0.5911642652008595,
+          0.5759304855553999
+        ],
+        "found_in_top1": false,
+        "found_in_top3": false,
+        "evidence_found": true,
+        "evidence_match": "Học kỳ 1 | IT001 | Nhập môn Lập trình | 4 | 3 | 1",
+        "evidence_doc_id": "course-summaries",
+        "agent_answer": "Ngữ cảnh chứa bằng chứng: ## IT001 — Nhập môn lập trình",
+        "agent_answer_verified": true,
+        "score": 0,
+        "score_reason": "không có bằng chứng trong top-3",
+        "agent_response": "[MOCK LLM] Answer based on context above."
+      },
+      {
+        "query_id": "Q4",
+        "query": "Liệt kê các môn tự chọn chuyên ngành của Kỹ thuật Phần mềm K18 (14 tín chỉ)",
+        "query_type": "liet_ke",
+        "gold_doc_id": "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c",
+        "gold_answer": "14 tín chỉ tự chọn chuyên ngành, bao gồm các môn theo định hướng SE",
+        "gold_value": "14TC",
+        "evidence": "14TC",
+        "metadata_filter": {
+          "department": "se"
+        },
+        "top_results": [
+          "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c",
+          "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c",
+          "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c"
+        ],
+        "top_scores": [
+          0.6469523012056584,
+          0.5846278330427594,
+          0.577024478542512
+        ],
+        "found_in_top1": true,
+        "found_in_top3": true,
+        "evidence_found": true,
+        "evidence_match": "14TC",
+        "evidence_doc_id": "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c",
+        "agent_answer": "Ngữ cảnh chứa bằng chứng: ### 3.4.2 Nhóm các môn học tự chọn chuyên ngành: 14TC",
+        "agent_answer_verified": true,
+        "score": 2,
+        "score_reason": "top-1 và top-3 chứa bằng chứng",
+        "agent_response": "[MOCK LLM] Answer based on context above."
+      },
+      {
+        "query_id": "Q5",
+        "query": "Hạn mượn sách tại thư viện UIT là bao nhiêu ngày?",
+        "query_type": "filter_test",
+        "gold_doc_id": "library-loan-student",
+        "gold_answer": "Sinh viên: 21 ngày (sách tham khảo/giáo trình); Giảng viên: 90 ngày (giáo trình), 21 ngày (sách tham khảo)",
+        "gold_value": "21 ngày",
+        "evidence": "Hạn mượn sách tham khảo và giáo trình cho sinh viên là 21 ngày",
+        "metadata_filter": {
+          "audience": "student"
+        },
+        "top_results": [
+          "library-loan-student",
+          "library-loan-student",
+          "library-loan-student"
+        ],
+        "top_scores": [
+          0.6694442308478301,
+          0.6246708589620198,
+          0.5920135225422314
+        ],
+        "found_in_top1": true,
+        "found_in_top3": true,
+        "evidence_found": true,
+        "evidence_match": "Hạn mượn sách tham khảo và giáo trình cho sinh viên là 21 ngày",
+        "evidence_doc_id": "library-loan-student",
+        "agent_answer": "Ngữ cảnh chứa bằng chứng: | Sách tham khảo, Giáo trình (Sách hệ thống) | 5 | **21 ngày** | 2 | 7 |",
+        "agent_answer_verified": true,
+        "score": 2,
+        "score_reason": "top-1 và top-3 chứa bằng chứng",
+        "agent_response": "[MOCK LLM] Answer based on context above."
+      }
+    ],
+    "ab_tests": {
+      "Q2": {
+        "query_id": "Q2",
+        "query": "Điều kiện để được đăng ký chuyên ngành Trí tuệ Nhân tạo K18 là gì?",
+        "metadata_filter": {
+          "department": "ai"
+        },
+        "without_filter": {
+          "query_id": "Q2",
+          "query": "Điều kiện để được đăng ký chuyên ngành Trí tuệ Nhân tạo K18 là gì?",
+          "query_type": "hoi_dieu_kien",
+          "gold_doc_id": "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+          "gold_answer": "Hoàn thành khối kiến thức cơ sở ngành (≥ 57 TC) và đáp ứng điều kiện riêng của ngành",
+          "gold_value": "Cơ sở ngành ≥ 57 TC",
+          "evidence": "Cơ sở ngành | ≥ 57",
+          "metadata_filter": {
+            "department": "ai"
+          },
+          "top_results": [
+            "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+            "course-list",
+            "course-list"
+          ],
+          "top_scores": [
+            0.5101137418172357,
+            0.4914709693122177,
+            0.4433001648311574
+          ],
+          "found_in_top1": true,
+          "found_in_top3": true,
+          "evidence_found": false,
+          "evidence_match": null,
+          "evidence_doc_id": null,
+          "agent_answer": "Không tìm thấy bằng chứng trong top-3.",
+          "agent_answer_verified": false,
+          "score": 0,
+          "score_reason": "không có bằng chứng trong top-3"
+        },
+        "with_filter": {
+          "query_id": "Q2",
+          "query": "Điều kiện để được đăng ký chuyên ngành Trí tuệ Nhân tạo K18 là gì?",
+          "query_type": "hoi_dieu_kien",
+          "gold_doc_id": "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+          "gold_answer": "Hoàn thành khối kiến thức cơ sở ngành (≥ 57 TC) và đáp ứng điều kiện riêng của ngành",
+          "gold_value": "Cơ sở ngành ≥ 57 TC",
+          "evidence": "Cơ sở ngành | ≥ 57",
+          "metadata_filter": {
+            "department": "ai"
+          },
+          "top_results": [
+            "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+            "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+            "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33"
+          ],
+          "top_scores": [
+            0.5101137418172357,
+            0.42321895661643794,
+            0.40690932105735556
+          ],
+          "found_in_top1": true,
+          "found_in_top3": true,
+          "evidence_found": false,
+          "evidence_match": null,
+          "evidence_doc_id": null,
+          "agent_answer": "Không tìm thấy bằng chứng trong top-3.",
+          "agent_answer_verified": false,
+          "score": 0,
+          "score_reason": "không có bằng chứng trong top-3"
+        }
+      },
+      "Q4": {
+        "query_id": "Q4",
+        "query": "Liệt kê các môn tự chọn chuyên ngành của Kỹ thuật Phần mềm K18 (14 tín chỉ)",
+        "metadata_filter": {
+          "department": "se"
+        },
+        "without_filter": {
+          "query_id": "Q4",
+          "query": "Liệt kê các môn tự chọn chuyên ngành của Kỹ thuật Phần mềm K18 (14 tín chỉ)",
+          "query_type": "liet_ke",
+          "gold_doc_id": "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c",
+          "gold_answer": "14 tín chỉ tự chọn chuyên ngành, bao gồm các môn theo định hướng SE",
+          "gold_value": "14TC",
+          "evidence": "14TC",
+          "metadata_filter": {
+            "department": "se"
+          },
+          "top_results": [
+            "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c",
+            "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+            "k18-ce-cu-nhan-nganh-ky-thuat-may-tinh-ap-dung-tu-khoa-18-2-02cbbd1e"
+          ],
+          "top_scores": [
+            0.6469523012056584,
+            0.636256021557358,
+            0.6287397632154068
+          ],
+          "found_in_top1": true,
+          "found_in_top3": true,
+          "evidence_found": false,
+          "evidence_match": null,
+          "evidence_doc_id": null,
+          "agent_answer": "Không tìm thấy bằng chứng trong top-3.",
+          "agent_answer_verified": false,
+          "score": 0,
+          "score_reason": "không có bằng chứng trong top-3"
+        },
+        "with_filter": {
+          "query_id": "Q4",
+          "query": "Liệt kê các môn tự chọn chuyên ngành của Kỹ thuật Phần mềm K18 (14 tín chỉ)",
+          "query_type": "liet_ke",
+          "gold_doc_id": "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c",
+          "gold_answer": "14 tín chỉ tự chọn chuyên ngành, bao gồm các môn theo định hướng SE",
+          "gold_value": "14TC",
+          "evidence": "14TC",
+          "metadata_filter": {
+            "department": "se"
+          },
+          "top_results": [
+            "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c",
+            "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c",
+            "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c"
+          ],
+          "top_scores": [
+            0.6469523012056584,
+            0.5846278330427594,
+            0.577024478542512
+          ],
+          "found_in_top1": true,
+          "found_in_top3": true,
+          "evidence_found": true,
+          "evidence_match": "14TC",
+          "evidence_doc_id": "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c",
+          "agent_answer": "Ngữ cảnh chứa bằng chứng: ### 3.4.2 Nhóm các môn học tự chọn chuyên ngành: 14TC",
+          "agent_answer_verified": true,
+          "score": 2,
+          "score_reason": "top-1 và top-3 chứa bằng chứng"
+        }
+      },
+      "Q5": {
+        "query_id": "Q5",
+        "query": "Hạn mượn sách tại thư viện UIT là bao nhiêu ngày?",
+        "metadata_filter": {
+          "audience": "student"
+        },
+        "without_filter": {
+          "query_id": "Q5",
+          "query": "Hạn mượn sách tại thư viện UIT là bao nhiêu ngày?",
+          "query_type": "filter_test",
+          "gold_doc_id": "library-loan-student",
+          "gold_answer": "Sinh viên: 21 ngày (sách tham khảo/giáo trình); Giảng viên: 90 ngày (giáo trình), 21 ngày (sách tham khảo)",
+          "gold_value": "21 ngày",
+          "evidence": "Hạn mượn sách tham khảo và giáo trình cho sinh viên là 21 ngày",
+          "metadata_filter": {
+            "audience": "student"
+          },
+          "top_results": [
+            "library-loan-student",
+            "library-loan-faculty",
+            "library-loan-student"
+          ],
+          "top_scores": [
+            0.6694442308478301,
+            0.6391096054010177,
+            0.6246708589620198
+          ],
+          "found_in_top1": true,
+          "found_in_top3": true,
+          "evidence_found": true,
+          "evidence_match": "Hạn mượn sách tham khảo và giáo trình cho sinh viên là 21 ngày",
+          "evidence_doc_id": "library-loan-student",
+          "agent_answer": "Ngữ cảnh chứa bằng chứng: | Sách tham khảo, Giáo trình (Sách hệ thống) | 5 | **21 ngày** | 2 | 7 |",
+          "agent_answer_verified": true,
+          "score": 2,
+          "score_reason": "top-1 và top-3 chứa bằng chứng"
+        },
+        "with_filter": {
+          "query_id": "Q5",
+          "query": "Hạn mượn sách tại thư viện UIT là bao nhiêu ngày?",
+          "query_type": "filter_test",
+          "gold_doc_id": "library-loan-student",
+          "gold_answer": "Sinh viên: 21 ngày (sách tham khảo/giáo trình); Giảng viên: 90 ngày (giáo trình), 21 ngày (sách tham khảo)",
+          "gold_value": "21 ngày",
+          "evidence": "Hạn mượn sách tham khảo và giáo trình cho sinh viên là 21 ngày",
+          "metadata_filter": {
+            "audience": "student"
+          },
+          "top_results": [
+            "library-loan-student",
+            "library-loan-student",
+            "library-loan-student"
+          ],
+          "top_scores": [
+            0.6694442308478301,
+            0.6246708589620198,
+            0.5920135225422314
+          ],
+          "found_in_top1": true,
+          "found_in_top3": true,
+          "evidence_found": true,
+          "evidence_match": "Hạn mượn sách tham khảo và giáo trình cho sinh viên là 21 ngày",
+          "evidence_doc_id": "library-loan-student",
+          "agent_answer": "Ngữ cảnh chứa bằng chứng: | Sách tham khảo, Giáo trình (Sách hệ thống) | 5 | **21 ngày** | 2 | 7 |",
+          "agent_answer_verified": true,
+          "score": 2,
+          "score_reason": "top-1 và top-3 chứa bằng chứng"
+        }
+      }
+    }
+  },
+  "heading": {
+    "chunker": "heading",
+    "embedding": "openai",
+    "document_count": 12,
+    "chunk_count": 1883,
+    "scoring": {
+      "method": "evidence-aware",
+      "max_score": 10,
+      "rule": "2=top-1 and evidence, 1=top-3 and evidence, 0=no evidence"
+    },
+    "total_score": 6,
+    "max_score": 10,
+    "top1_count": 4,
+    "top3_count": 4,
+    "evidence_count": 4,
+    "results": [
+      {
+        "query_id": "Q1",
+        "query": "Theo danh mục môn học UIT, CS106 yêu cầu môn học trước nào?",
+        "query_type": "tra_so_lieu",
+        "gold_doc_id": "course-list",
+        "gold_answer": "IT003",
+        "gold_value": "IT003",
+        "evidence": "- prev_code: IT003",
+        "metadata_filter": null,
+        "top_results": [
+          "course-list",
+          "course-list",
+          "course-list"
+        ],
+        "top_scores": [
+          0.5893319337058074,
+          0.5723217978048467,
+          0.5702522309916276
+        ],
+        "found_in_top1": true,
+        "found_in_top3": true,
+        "evidence_found": true,
+        "evidence_match": "- prev_code: IT003",
+        "evidence_doc_id": "course-list",
+        "agent_answer": "Ngữ cảnh chứa bằng chứng: - prev_code: []",
+        "agent_answer_verified": true,
+        "score": 2,
+        "score_reason": "top-1 và top-3 chứa bằng chứng",
+        "agent_response": "[MOCK LLM] Answer based on context above."
+      },
+      {
+        "query_id": "Q2",
+        "query": "Điều kiện để được đăng ký chuyên ngành Trí tuệ Nhân tạo K18 là gì?",
+        "query_type": "hoi_dieu_kien",
+        "gold_doc_id": "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+        "gold_answer": "Hoàn thành khối kiến thức cơ sở ngành (≥ 57 TC) và đáp ứng điều kiện riêng của ngành",
+        "gold_value": "Cơ sở ngành ≥ 57 TC",
+        "evidence": "Cơ sở ngành | ≥ 57",
+        "metadata_filter": {
+          "department": "ai"
+        },
+        "top_results": [
+          "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+          "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+          "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33"
+        ],
+        "top_scores": [
+          0.5557103000352015,
+          0.4946192543147845,
+          0.4891731557912635
+        ],
+        "found_in_top1": true,
+        "found_in_top3": true,
+        "evidence_found": false,
+        "evidence_match": null,
+        "evidence_doc_id": null,
+        "agent_answer": "Không tìm thấy bằng chứng trong top-3.",
+        "agent_answer_verified": false,
+        "score": 0,
+        "score_reason": "không có bằng chứng trong top-3",
+        "agent_response": "[MOCK LLM] Answer based on context above."
+      },
+      {
+        "query_id": "Q3",
+        "query": "Theo kế hoạch giảng dạy K18 AI, IT001 (Nhập môn Lập trình) được dạy ở học kỳ nào?",
+        "query_type": "hoi_quy_trinh",
+        "gold_doc_id": "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+        "gold_answer": "Học kỳ 1",
+        "gold_value": "Học kỳ 1",
+        "evidence": "Học kỳ 1 | IT001 | Nhập môn Lập trình | 4 | 3 | 1",
+        "metadata_filter": null,
+        "top_results": [
+          "k18-ds-cu-nhan-nganh-khoa-hoc-du-lieu-ap-dung-tu-khoa-18-20-6bf6ff8a",
+          "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c",
+          "k18-ce-cu-nhan-nganh-ky-thuat-may-tinh-ap-dung-tu-khoa-18-2-02cbbd1e"
+        ],
+        "top_scores": [
+          0.634442240799558,
+          0.62429410251967,
+          0.622226966814651
+        ],
+        "found_in_top1": false,
+        "found_in_top3": false,
+        "evidence_found": true,
+        "evidence_match": "Học kỳ 1 | IT001 | Nhập môn Lập trình | 4 | 3 | 1",
+        "evidence_doc_id": "k18-ds-cu-nhan-nganh-khoa-hoc-du-lieu-ap-dung-tu-khoa-18-20-6bf6ff8a",
+        "agent_answer": "Ngữ cảnh chứa bằng chứng: 1 | IT001 | Nhập môn Lập trình | 4 | 3 | 1",
+        "agent_answer_verified": true,
+        "score": 0,
+        "score_reason": "không có bằng chứng trong top-3",
+        "agent_response": "[MOCK LLM] Answer based on context above."
+      },
+      {
+        "query_id": "Q4",
+        "query": "Liệt kê các môn tự chọn chuyên ngành của Kỹ thuật Phần mềm K18 (14 tín chỉ)",
+        "query_type": "liet_ke",
+        "gold_doc_id": "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c",
+        "gold_answer": "14 tín chỉ tự chọn chuyên ngành, bao gồm các môn theo định hướng SE",
+        "gold_value": "14TC",
+        "evidence": "14TC",
+        "metadata_filter": {
+          "department": "se"
+        },
+        "top_results": [
+          "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c",
+          "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c",
+          "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c"
+        ],
+        "top_scores": [
+          0.6876427359719912,
+          0.5805229108315189,
+          0.553963786293707
+        ],
+        "found_in_top1": true,
+        "found_in_top3": true,
+        "evidence_found": true,
+        "evidence_match": "14TC",
+        "evidence_doc_id": "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c",
+        "agent_answer": "Ngữ cảnh chứa bằng chứng: ### 3.4.2 Nhóm các môn học tự chọn chuyên ngành: 14TC",
+        "agent_answer_verified": true,
+        "score": 2,
+        "score_reason": "top-1 và top-3 chứa bằng chứng",
+        "agent_response": "[MOCK LLM] Answer based on context above."
+      },
+      {
+        "query_id": "Q5",
+        "query": "Hạn mượn sách tại thư viện UIT là bao nhiêu ngày?",
+        "query_type": "filter_test",
+        "gold_doc_id": "library-loan-student",
+        "gold_answer": "Sinh viên: 21 ngày (sách tham khảo/giáo trình); Giảng viên: 90 ngày (giáo trình), 21 ngày (sách tham khảo)",
+        "gold_value": "21 ngày",
+        "evidence": "Hạn mượn sách tham khảo và giáo trình cho sinh viên là 21 ngày",
+        "metadata_filter": {
+          "audience": "student"
+        },
+        "top_results": [
+          "library-loan-student",
+          "library-loan-student",
+          "library-loan-student"
+        ],
+        "top_scores": [
+          0.7661479241487541,
+          0.6985510224716052,
+          0.6669487985121805
+        ],
+        "found_in_top1": true,
+        "found_in_top3": true,
+        "evidence_found": true,
+        "evidence_match": "Hạn mượn sách tham khảo và giáo trình cho sinh viên là 21 ngày",
+        "evidence_doc_id": "library-loan-student",
+        "agent_answer": "Ngữ cảnh chứa bằng chứng: > **Ghi chú:** Hạn mượn sách tham khảo và giáo trình cho sinh viên là **21 ngày**",
+        "agent_answer_verified": true,
+        "score": 2,
+        "score_reason": "top-1 và top-3 chứa bằng chứng",
+        "agent_response": "[MOCK LLM] Answer based on context above."
+      }
+    ],
+    "ab_tests": {
+      "Q2": {
+        "query_id": "Q2",
+        "query": "Điều kiện để được đăng ký chuyên ngành Trí tuệ Nhân tạo K18 là gì?",
+        "metadata_filter": {
+          "department": "ai"
+        },
+        "without_filter": {
+          "query_id": "Q2",
+          "query": "Điều kiện để được đăng ký chuyên ngành Trí tuệ Nhân tạo K18 là gì?",
+          "query_type": "hoi_dieu_kien",
+          "gold_doc_id": "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+          "gold_answer": "Hoàn thành khối kiến thức cơ sở ngành (≥ 57 TC) và đáp ứng điều kiện riêng của ngành",
+          "gold_value": "Cơ sở ngành ≥ 57 TC",
+          "evidence": "Cơ sở ngành | ≥ 57",
+          "metadata_filter": {
+            "department": "ai"
+          },
+          "top_results": [
+            "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+            "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+            "course-list"
+          ],
+          "top_scores": [
+            0.5557103000352015,
+            0.4946192543147845,
+            0.4935044900516914
+          ],
+          "found_in_top1": true,
+          "found_in_top3": true,
+          "evidence_found": false,
+          "evidence_match": null,
+          "evidence_doc_id": null,
+          "agent_answer": "Không tìm thấy bằng chứng trong top-3.",
+          "agent_answer_verified": false,
+          "score": 0,
+          "score_reason": "không có bằng chứng trong top-3"
+        },
+        "with_filter": {
+          "query_id": "Q2",
+          "query": "Điều kiện để được đăng ký chuyên ngành Trí tuệ Nhân tạo K18 là gì?",
+          "query_type": "hoi_dieu_kien",
+          "gold_doc_id": "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+          "gold_answer": "Hoàn thành khối kiến thức cơ sở ngành (≥ 57 TC) và đáp ứng điều kiện riêng của ngành",
+          "gold_value": "Cơ sở ngành ≥ 57 TC",
+          "evidence": "Cơ sở ngành | ≥ 57",
+          "metadata_filter": {
+            "department": "ai"
+          },
+          "top_results": [
+            "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+            "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+            "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33"
+          ],
+          "top_scores": [
+            0.5557103000352015,
+            0.4946192543147845,
+            0.4891731557912635
+          ],
+          "found_in_top1": true,
+          "found_in_top3": true,
+          "evidence_found": false,
+          "evidence_match": null,
+          "evidence_doc_id": null,
+          "agent_answer": "Không tìm thấy bằng chứng trong top-3.",
+          "agent_answer_verified": false,
+          "score": 0,
+          "score_reason": "không có bằng chứng trong top-3"
+        }
+      },
+      "Q4": {
+        "query_id": "Q4",
+        "query": "Liệt kê các môn tự chọn chuyên ngành của Kỹ thuật Phần mềm K18 (14 tín chỉ)",
+        "metadata_filter": {
+          "department": "se"
+        },
+        "without_filter": {
+          "query_id": "Q4",
+          "query": "Liệt kê các môn tự chọn chuyên ngành của Kỹ thuật Phần mềm K18 (14 tín chỉ)",
+          "query_type": "liet_ke",
+          "gold_doc_id": "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c",
+          "gold_answer": "14 tín chỉ tự chọn chuyên ngành, bao gồm các môn theo định hướng SE",
+          "gold_value": "14TC",
+          "evidence": "14TC",
+          "metadata_filter": {
+            "department": "se"
+          },
+          "top_results": [
+            "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c",
+            "k18-ce-cu-nhan-nganh-ky-thuat-may-tinh-ap-dung-tu-khoa-18-2-02cbbd1e",
+            "k18-ce-cu-nhan-nganh-ky-thuat-may-tinh-ap-dung-tu-khoa-18-2-02cbbd1e"
+          ],
+          "top_scores": [
+            0.6876427359719912,
+            0.6782916310827645,
+            0.6661780667753305
+          ],
+          "found_in_top1": true,
+          "found_in_top3": true,
+          "evidence_found": false,
+          "evidence_match": null,
+          "evidence_doc_id": null,
+          "agent_answer": "Không tìm thấy bằng chứng trong top-3.",
+          "agent_answer_verified": false,
+          "score": 0,
+          "score_reason": "không có bằng chứng trong top-3"
+        },
+        "with_filter": {
+          "query_id": "Q4",
+          "query": "Liệt kê các môn tự chọn chuyên ngành của Kỹ thuật Phần mềm K18 (14 tín chỉ)",
+          "query_type": "liet_ke",
+          "gold_doc_id": "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c",
+          "gold_answer": "14 tín chỉ tự chọn chuyên ngành, bao gồm các môn theo định hướng SE",
+          "gold_value": "14TC",
+          "evidence": "14TC",
+          "metadata_filter": {
+            "department": "se"
+          },
+          "top_results": [
+            "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c",
+            "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c",
+            "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c"
+          ],
+          "top_scores": [
+            0.6876427359719912,
+            0.5805229108315189,
+            0.553963786293707
+          ],
+          "found_in_top1": true,
+          "found_in_top3": true,
+          "evidence_found": true,
+          "evidence_match": "14TC",
+          "evidence_doc_id": "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c",
+          "agent_answer": "Ngữ cảnh chứa bằng chứng: ### 3.4.2 Nhóm các môn học tự chọn chuyên ngành: 14TC",
+          "agent_answer_verified": true,
+          "score": 2,
+          "score_reason": "top-1 và top-3 chứa bằng chứng"
+        }
+      },
+      "Q5": {
+        "query_id": "Q5",
+        "query": "Hạn mượn sách tại thư viện UIT là bao nhiêu ngày?",
+        "metadata_filter": {
+          "audience": "student"
+        },
+        "without_filter": {
+          "query_id": "Q5",
+          "query": "Hạn mượn sách tại thư viện UIT là bao nhiêu ngày?",
+          "query_type": "filter_test",
+          "gold_doc_id": "library-loan-student",
+          "gold_answer": "Sinh viên: 21 ngày (sách tham khảo/giáo trình); Giảng viên: 90 ngày (giáo trình), 21 ngày (sách tham khảo)",
+          "gold_value": "21 ngày",
+          "evidence": "Hạn mượn sách tham khảo và giáo trình cho sinh viên là 21 ngày",
+          "metadata_filter": {
+            "audience": "student"
+          },
+          "top_results": [
+            "library-loan-student",
+            "library-loan-faculty",
+            "library-loan-faculty"
+          ],
+          "top_scores": [
+            0.7661479241487541,
+            0.7391618223535943,
+            0.7355910509765096
+          ],
+          "found_in_top1": true,
+          "found_in_top3": true,
+          "evidence_found": true,
+          "evidence_match": "Hạn mượn sách tham khảo và giáo trình cho sinh viên là 21 ngày",
+          "evidence_doc_id": "library-loan-student",
+          "agent_answer": "Ngữ cảnh chứa bằng chứng: > **Ghi chú:** Hạn mượn sách tham khảo và giáo trình cho sinh viên là **21 ngày**",
+          "agent_answer_verified": true,
+          "score": 2,
+          "score_reason": "top-1 và top-3 chứa bằng chứng"
+        },
+        "with_filter": {
+          "query_id": "Q5",
+          "query": "Hạn mượn sách tại thư viện UIT là bao nhiêu ngày?",
+          "query_type": "filter_test",
+          "gold_doc_id": "library-loan-student",
+          "gold_answer": "Sinh viên: 21 ngày (sách tham khảo/giáo trình); Giảng viên: 90 ngày (giáo trình), 21 ngày (sách tham khảo)",
+          "gold_value": "21 ngày",
+          "evidence": "Hạn mượn sách tham khảo và giáo trình cho sinh viên là 21 ngày",
+          "metadata_filter": {
+            "audience": "student"
+          },
+          "top_results": [
+            "library-loan-student",
+            "library-loan-student",
+            "library-loan-student"
+          ],
+          "top_scores": [
+            0.7661479241487541,
+            0.6985510224716052,
+            0.6669487985121805
+          ],
+          "found_in_top1": true,
+          "found_in_top3": true,
+          "evidence_found": true,
+          "evidence_match": "Hạn mượn sách tham khảo và giáo trình cho sinh viên là 21 ngày",
+          "evidence_doc_id": "library-loan-student",
+          "agent_answer": "Ngữ cảnh chứa bằng chứng: > **Ghi chú:** Hạn mượn sách tham khảo và giáo trình cho sinh viên là **21 ngày**",
+          "agent_answer_verified": true,
+          "score": 2,
+          "score_reason": "top-1 và top-3 chứa bằng chứng"
+        }
+      }
+    }
+  },
+  "custom": {
+    "chunker": "custom",
+    "embedding": "openai",
+    "document_count": 12,
+    "chunk_count": 1981,
+    "scoring": {
+      "method": "evidence-aware",
+      "max_score": 10,
+      "rule": "2=top-1 and evidence, 1=top-3 and evidence, 0=no evidence"
+    },
+    "total_score": 6,
+    "max_score": 10,
+    "top1_count": 4,
+    "top3_count": 4,
+    "evidence_count": 4,
+    "results": [
+      {
+        "query_id": "Q1",
+        "query": "Theo danh mục môn học UIT, CS106 yêu cầu môn học trước nào?",
+        "query_type": "tra_so_lieu",
+        "gold_doc_id": "course-list",
+        "gold_answer": "IT003",
+        "gold_value": "IT003",
+        "evidence": "- prev_code: IT003",
+        "metadata_filter": null,
+        "top_results": [
+          "course-list",
+          "course-list",
+          "course-list"
+        ],
+        "top_scores": [
+          0.5893319337058074,
+          0.5721602236156116,
+          0.5701789485012796
+        ],
+        "found_in_top1": true,
+        "found_in_top3": true,
+        "evidence_found": true,
+        "evidence_match": "- prev_code: IT003",
+        "evidence_doc_id": "course-list",
+        "agent_answer": "Ngữ cảnh chứa bằng chứng: - prev_code: []",
+        "agent_answer_verified": true,
+        "score": 2,
+        "score_reason": "top-1 và top-3 chứa bằng chứng",
+        "agent_response": "[MOCK LLM] Answer based on context above."
+      },
+      {
+        "query_id": "Q2",
+        "query": "Điều kiện để được đăng ký chuyên ngành Trí tuệ Nhân tạo K18 là gì?",
+        "query_type": "hoi_dieu_kien",
+        "gold_doc_id": "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+        "gold_answer": "Hoàn thành khối kiến thức cơ sở ngành (≥ 57 TC) và đáp ứng điều kiện riêng của ngành",
+        "gold_value": "Cơ sở ngành ≥ 57 TC",
+        "evidence": "Cơ sở ngành | ≥ 57",
+        "metadata_filter": {
+          "department": "ai"
+        },
+        "top_results": [
+          "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+          "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+          "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33"
+        ],
+        "top_scores": [
+          0.5557103000352015,
+          0.5179582313739957,
+          0.5179582313739957
+        ],
+        "found_in_top1": true,
+        "found_in_top3": true,
+        "evidence_found": false,
+        "evidence_match": null,
+        "evidence_doc_id": null,
+        "agent_answer": "Không tìm thấy bằng chứng trong top-3.",
+        "agent_answer_verified": false,
+        "score": 0,
+        "score_reason": "không có bằng chứng trong top-3",
+        "agent_response": "[MOCK LLM] Answer based on context above."
+      },
+      {
+        "query_id": "Q3",
+        "query": "Theo kế hoạch giảng dạy K18 AI, IT001 (Nhập môn Lập trình) được dạy ở học kỳ nào?",
+        "query_type": "hoi_quy_trinh",
+        "gold_doc_id": "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+        "gold_answer": "Học kỳ 1",
+        "gold_value": "Học kỳ 1",
+        "evidence": "Học kỳ 1 | IT001 | Nhập môn Lập trình | 4 | 3 | 1",
+        "metadata_filter": null,
+        "top_results": [
+          "k18-ds-cu-nhan-nganh-khoa-hoc-du-lieu-ap-dung-tu-khoa-18-20-6bf6ff8a",
+          "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c",
+          "k18-ce-cu-nhan-nganh-ky-thuat-may-tinh-ap-dung-tu-khoa-18-2-02cbbd1e"
+        ],
+        "top_scores": [
+          0.634442240799558,
+          0.6247148627232377,
+          0.6224380147427837
+        ],
+        "found_in_top1": false,
+        "found_in_top3": false,
+        "evidence_found": true,
+        "evidence_match": "Học kỳ 1 | IT001 | Nhập môn Lập trình | 4 | 3 | 1",
+        "evidence_doc_id": "k18-ds-cu-nhan-nganh-khoa-hoc-du-lieu-ap-dung-tu-khoa-18-20-6bf6ff8a",
+        "agent_answer": "Ngữ cảnh chứa bằng chứng: 1 | IT001 | Nhập môn Lập trình | 4 | 3 | 1",
+        "agent_answer_verified": true,
+        "score": 0,
+        "score_reason": "không có bằng chứng trong top-3",
+        "agent_response": "[MOCK LLM] Answer based on context above."
+      },
+      {
+        "query_id": "Q4",
+        "query": "Liệt kê các môn tự chọn chuyên ngành của Kỹ thuật Phần mềm K18 (14 tín chỉ)",
+        "query_type": "liet_ke",
+        "gold_doc_id": "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c",
+        "gold_answer": "14 tín chỉ tự chọn chuyên ngành, bao gồm các môn theo định hướng SE",
+        "gold_value": "14TC",
+        "evidence": "14TC",
+        "metadata_filter": {
+          "department": "se"
+        },
+        "top_results": [
+          "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c",
+          "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c",
+          "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c"
+        ],
+        "top_scores": [
+          0.6876088176413475,
+          0.5805229108315189,
+          0.5387696101706752
+        ],
+        "found_in_top1": true,
+        "found_in_top3": true,
+        "evidence_found": true,
+        "evidence_match": "14TC",
+        "evidence_doc_id": "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c",
+        "agent_answer": "Ngữ cảnh chứa bằng chứng: ### 3.4.2 Nhóm các môn học tự chọn chuyên ngành: 14TC",
+        "agent_answer_verified": true,
+        "score": 2,
+        "score_reason": "top-1 và top-3 chứa bằng chứng",
+        "agent_response": "[MOCK LLM] Answer based on context above."
+      },
+      {
+        "query_id": "Q5",
+        "query": "Hạn mượn sách tại thư viện UIT là bao nhiêu ngày?",
+        "query_type": "filter_test",
+        "gold_doc_id": "library-loan-student",
+        "gold_answer": "Sinh viên: 21 ngày (sách tham khảo/giáo trình); Giảng viên: 90 ngày (giáo trình), 21 ngày (sách tham khảo)",
+        "gold_value": "21 ngày",
+        "evidence": "Hạn mượn sách tham khảo và giáo trình cho sinh viên là 21 ngày",
+        "metadata_filter": {
+          "audience": "student"
+        },
+        "top_results": [
+          "library-loan-student",
+          "library-loan-student",
+          "library-loan-student"
+        ],
+        "top_scores": [
+          0.766318008611961,
+          0.6977698208941803,
+          0.6658501933460457
+        ],
+        "found_in_top1": true,
+        "found_in_top3": true,
+        "evidence_found": true,
+        "evidence_match": "Hạn mượn sách tham khảo và giáo trình cho sinh viên là 21 ngày",
+        "evidence_doc_id": "library-loan-student",
+        "agent_answer": "Ngữ cảnh chứa bằng chứng: > **Ghi chú:** Hạn mượn sách tham khảo và giáo trình cho sinh viên là **21 ngày**",
+        "agent_answer_verified": true,
+        "score": 2,
+        "score_reason": "top-1 và top-3 chứa bằng chứng",
+        "agent_response": "[MOCK LLM] Answer based on context above."
+      }
+    ],
+    "ab_tests": {
+      "Q2": {
+        "query_id": "Q2",
+        "query": "Điều kiện để được đăng ký chuyên ngành Trí tuệ Nhân tạo K18 là gì?",
+        "metadata_filter": {
+          "department": "ai"
+        },
+        "without_filter": {
+          "query_id": "Q2",
+          "query": "Điều kiện để được đăng ký chuyên ngành Trí tuệ Nhân tạo K18 là gì?",
+          "query_type": "hoi_dieu_kien",
+          "gold_doc_id": "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+          "gold_answer": "Hoàn thành khối kiến thức cơ sở ngành (≥ 57 TC) và đáp ứng điều kiện riêng của ngành",
+          "gold_value": "Cơ sở ngành ≥ 57 TC",
+          "evidence": "Cơ sở ngành | ≥ 57",
+          "metadata_filter": {
+            "department": "ai"
+          },
+          "top_results": [
+            "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+            "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+            "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33"
+          ],
+          "top_scores": [
+            0.5557103000352015,
+            0.5179582313739957,
+            0.5179582313739957
+          ],
+          "found_in_top1": true,
+          "found_in_top3": true,
+          "evidence_found": false,
+          "evidence_match": null,
+          "evidence_doc_id": null,
+          "agent_answer": "Không tìm thấy bằng chứng trong top-3.",
+          "agent_answer_verified": false,
+          "score": 0,
+          "score_reason": "không có bằng chứng trong top-3"
+        },
+        "with_filter": {
+          "query_id": "Q2",
+          "query": "Điều kiện để được đăng ký chuyên ngành Trí tuệ Nhân tạo K18 là gì?",
+          "query_type": "hoi_dieu_kien",
+          "gold_doc_id": "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+          "gold_answer": "Hoàn thành khối kiến thức cơ sở ngành (≥ 57 TC) và đáp ứng điều kiện riêng của ngành",
+          "gold_value": "Cơ sở ngành ≥ 57 TC",
+          "evidence": "Cơ sở ngành | ≥ 57",
+          "metadata_filter": {
+            "department": "ai"
+          },
+          "top_results": [
+            "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+            "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
+            "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33"
+          ],
+          "top_scores": [
+            0.5557103000352015,
+            0.5179582313739957,
+            0.5179582313739957
+          ],
+          "found_in_top1": true,
+          "found_in_top3": true,
+          "evidence_found": false,
+          "evidence_match": null,
+          "evidence_doc_id": null,
+          "agent_answer": "Không tìm thấy bằng chứng trong top-3.",
+          "agent_answer_verified": false,
+          "score": 0,
+          "score_reason": "không có bằng chứng trong top-3"
+        }
+      },
+      "Q4": {
+        "query_id": "Q4",
+        "query": "Liệt kê các môn tự chọn chuyên ngành của Kỹ thuật Phần mềm K18 (14 tín chỉ)",
+        "metadata_filter": {
+          "department": "se"
+        },
+        "without_filter": {
+          "query_id": "Q4",
+          "query": "Liệt kê các môn tự chọn chuyên ngành của Kỹ thuật Phần mềm K18 (14 tín chỉ)",
+          "query_type": "liet_ke",
+          "gold_doc_id": "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c",
+          "gold_answer": "14 tín chỉ tự chọn chuyên ngành, bao gồm các môn theo định hướng SE",
+          "gold_value": "14TC",
+          "evidence": "14TC",
+          "metadata_filter": {
+            "department": "se"
+          },
+          "top_results": [
+            "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c",
+            "k18-ce-cu-nhan-nganh-ky-thuat-may-tinh-ap-dung-tu-khoa-18-2-02cbbd1e",
+            "k18-ce-cu-nhan-nganh-ky-thuat-may-tinh-ap-dung-tu-khoa-18-2-02cbbd1e"
+          ],
+          "top_scores": [
+            0.6876088176413475,
+            0.6782916310827645,
+            0.6661780667753305
+          ],
+          "found_in_top1": true,
+          "found_in_top3": true,
+          "evidence_found": false,
+          "evidence_match": null,
+          "evidence_doc_id": null,
+          "agent_answer": "Không tìm thấy bằng chứng trong top-3.",
+          "agent_answer_verified": false,
+          "score": 0,
+          "score_reason": "không có bằng chứng trong top-3"
+        },
+        "with_filter": {
+          "query_id": "Q4",
+          "query": "Liệt kê các môn tự chọn chuyên ngành của Kỹ thuật Phần mềm K18 (14 tín chỉ)",
+          "query_type": "liet_ke",
+          "gold_doc_id": "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c",
+          "gold_answer": "14 tín chỉ tự chọn chuyên ngành, bao gồm các môn theo định hướng SE",
+          "gold_value": "14TC",
+          "evidence": "14TC",
+          "metadata_filter": {
+            "department": "se"
+          },
+          "top_results": [
+            "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c",
+            "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c",
+            "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c"
+          ],
+          "top_scores": [
+            0.6876088176413475,
+            0.5805229108315189,
+            0.5387696101706752
+          ],
+          "found_in_top1": true,
+          "found_in_top3": true,
+          "evidence_found": true,
+          "evidence_match": "14TC",
+          "evidence_doc_id": "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c",
+          "agent_answer": "Ngữ cảnh chứa bằng chứng: ### 3.4.2 Nhóm các môn học tự chọn chuyên ngành: 14TC",
+          "agent_answer_verified": true,
+          "score": 2,
+          "score_reason": "top-1 và top-3 chứa bằng chứng"
+        }
+      },
+      "Q5": {
+        "query_id": "Q5",
+        "query": "Hạn mượn sách tại thư viện UIT là bao nhiêu ngày?",
+        "metadata_filter": {
+          "audience": "student"
+        },
+        "without_filter": {
+          "query_id": "Q5",
+          "query": "Hạn mượn sách tại thư viện UIT là bao nhiêu ngày?",
+          "query_type": "filter_test",
+          "gold_doc_id": "library-loan-student",
+          "gold_answer": "Sinh viên: 21 ngày (sách tham khảo/giáo trình); Giảng viên: 90 ngày (giáo trình), 21 ngày (sách tham khảo)",
+          "gold_value": "21 ngày",
+          "evidence": "Hạn mượn sách tham khảo và giáo trình cho sinh viên là 21 ngày",
+          "metadata_filter": {
+            "audience": "student"
+          },
+          "top_results": [
+            "library-loan-student",
+            "library-loan-faculty",
+            "library-loan-faculty"
+          ],
+          "top_scores": [
+            0.766318008611961,
+            0.7397218012914664,
+            0.7347733439335826
+          ],
+          "found_in_top1": true,
+          "found_in_top3": true,
+          "evidence_found": true,
+          "evidence_match": "Hạn mượn sách tham khảo và giáo trình cho sinh viên là 21 ngày",
+          "evidence_doc_id": "library-loan-student",
+          "agent_answer": "Ngữ cảnh chứa bằng chứng: > **Ghi chú:** Hạn mượn sách tham khảo và giáo trình cho sinh viên là **21 ngày**",
+          "agent_answer_verified": true,
+          "score": 2,
+          "score_reason": "top-1 và top-3 chứa bằng chứng"
+        },
+        "with_filter": {
+          "query_id": "Q5",
+          "query": "Hạn mượn sách tại thư viện UIT là bao nhiêu ngày?",
+          "query_type": "filter_test",
+          "gold_doc_id": "library-loan-student",
+          "gold_answer": "Sinh viên: 21 ngày (sách tham khảo/giáo trình); Giảng viên: 90 ngày (giáo trình), 21 ngày (sách tham khảo)",
+          "gold_value": "21 ngày",
+          "evidence": "Hạn mượn sách tham khảo và giáo trình cho sinh viên là 21 ngày",
+          "metadata_filter": {
+            "audience": "student"
+          },
+          "top_results": [
+            "library-loan-student",
+            "library-loan-student",
+            "library-loan-student"
+          ],
+          "top_scores": [
+            0.766318008611961,
+            0.6977698208941803,
+            0.6658501933460457
+          ],
+          "found_in_top1": true,
+          "found_in_top3": true,
+          "evidence_found": true,
+          "evidence_match": "Hạn mượn sách tham khảo và giáo trình cho sinh viên là 21 ngày",
+          "evidence_doc_id": "library-loan-student",
+          "agent_answer": "Ngữ cảnh chứa bằng chứng: > **Ghi chú:** Hạn mượn sách tham khảo và giáo trình cho sinh viên là **21 ngày**",
+          "agent_answer_verified": true,
+          "score": 2,
+          "score_reason": "top-1 và top-3 chứa bằng chứng"
+        }
+      }
+    }
+  }
 }

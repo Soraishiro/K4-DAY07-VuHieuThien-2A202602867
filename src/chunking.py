@@ -43,8 +43,13 @@ class SentenceChunker:
     Strip extra whitespace from each chunk.
     """
 
-    def __init__(self, max_sentences_per_chunk: int = 3) -> None:
+    def __init__(
+        self,
+        max_sentences_per_chunk: int = 3,
+        max_chars_per_chunk: int = 2500,
+    ) -> None:
         self.max_sentences_per_chunk = max(1, max_sentences_per_chunk)
+        self.max_chars_per_chunk = max(1, max_chars_per_chunk)
 
     def chunk(self, text: str) -> list[str]:
         if not text:
@@ -62,11 +67,19 @@ class SentenceChunker:
         for sentence in sentences:
             current_chunk.append(sentence)
             if len(current_chunk) >= self.max_sentences_per_chunk:
-                chunks.append(" ".join(current_chunk))
+                chunk = " ".join(current_chunk)
+                if len(chunk) > self.max_chars_per_chunk:
+                    chunks.extend(RecursiveChunker(chunk_size=self.max_chars_per_chunk).chunk(chunk))
+                else:
+                    chunks.append(chunk)
                 current_chunk = []
         
         if current_chunk:
-            chunks.append(" ".join(current_chunk))
+            chunk = " ".join(current_chunk)
+            if len(chunk) > self.max_chars_per_chunk:
+                chunks.extend(RecursiveChunker(chunk_size=self.max_chars_per_chunk).chunk(chunk))
+            else:
+                chunks.append(chunk)
         
         return chunks
 

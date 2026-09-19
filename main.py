@@ -4,8 +4,14 @@ import os
 import sys
 from pathlib import Path
 
-from dotenv import load_dotenv
+# Ensure UTF-8 output on Windows
+try:
+    sys.stdout.reconfigure(encoding="utf-8")
+    sys.stderr.reconfigure(encoding="utf-8")
+except AttributeError:
+    pass
 
+from dotenv import load_dotenv
 from src.agent import KnowledgeBaseAgent
 from src.embeddings import (
     EMBEDDING_PROVIDER_ENV,
@@ -21,12 +27,9 @@ from src.models import Document
 from src.store import EmbeddingStore
 
 SAMPLE_FILES = [
-    "data/python_intro.txt",
-    "data/vector_store_notes.md",
-    "data/rag_system_design.md",
-    "data/customer_support_playbook.txt",
-    "data/chunking_experiment_report.md",
-    "data/vi_retrieval_notes.md",
+    "data/dang-ky-hoc-phan/k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33.md",
+    "data/dang-ky-hoc-phan/k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c.md",
+    "data/thu-vien/library-loan-student.md",
 ]
 
 

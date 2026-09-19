@@ -16,7 +16,9 @@
     "gold_doc_id": "k18-ai-cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-18-20-83330a33",
     "gold_value": "Cơ sở ngành ≥ 57 TC",
     "evidence": "Cơ sở ngành | ≥ 57",
-    "metadata_filter": null,
+    "metadata_filter": {
+      "department": "ai"
+    },
     "type": "hoi_dieu_kien"
   },
   {
@@ -36,7 +38,9 @@
     "gold_doc_id": "k18-se-cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-18-2-e01fcd2c",
     "gold_value": "14TC",
     "evidence": "14TC",
-    "metadata_filter": null,
+    "metadata_filter": {
+      "department": "se"
+    },
     "type": "liet_ke"
   },
   {

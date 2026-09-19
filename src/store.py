@@ -70,6 +70,27 @@ class EmbeddingStore:
 
         Append embedded records to the in-memory store.
         """
+        if not docs:
+            return
+
+        batch_embed = getattr(self._embedding_fn, "embed_many", None)
+        if batch_embed is not None:
+            embeddings = batch_embed([doc.content for doc in docs])
+            if len(embeddings) != len(docs):
+                raise RuntimeError("Embedding backend returned a different number of vectors")
+            for doc, embedding in zip(docs, embeddings):
+                metadata_copy = dict(doc.metadata) if doc.metadata else {}
+                metadata_copy.setdefault("doc_id", doc.id)
+                self._store.append(
+                    {
+                        "id": doc.id,
+                        "content": doc.content,
+                        "metadata": metadata_copy,
+                        "embedding": embedding,
+                    }
+                )
+            return
+
         for doc in docs:
             record = self._make_record(doc)
             self._store.append(record)
